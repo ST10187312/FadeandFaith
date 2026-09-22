@@ -129,3 +129,6 @@ The goal is to create a simple digital connection between customers and barbers 
 💈 Fade and Faith
 
 Your Fade. Your Barber. Your Time.
+
+St10187312 Siyabonga Makhubu
+
