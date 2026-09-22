@@ -1,4 +1,7 @@
 Fade and Faith
+YouTube link: https://youtube.com/shorts/Cjbr3rF5i5s?feature=share
+
+
 
 Your Fade. Your Barber. Your Time.
 
