@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <!-- TOP BAR -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="12dp"
+                android:src="@drawable/arrowback"
+                android:contentDescription="Back"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="NOTIFICATIONS"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06" />
+
+            <View
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stay Updated"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Important updates about your appointments and FADE &amp; FAITH."
+            android:textColor="#8A8A8A"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginBottom="28dp" />
+
+        <!-- APPOINTMENT -->
+
+        <LinearLayout
+            android:id="@+id/appointmentNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="18dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:padding="10dp"
+                android:src="@drawable/calendar"
+                android:contentDescription="Appointment"
+                android:background="@drawable/iconbutton" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appointment Reminder"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your upcoming appointment is approaching."
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/appointmentIndicator"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/check"
+                android:contentDescription="Unread" />
+
+        </LinearLayout>
+
+        <!-- PROMOTION -->
+
+        <LinearLayout
+            android:id="@+id/promotionNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="18dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="12dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:padding="10dp"
+                android:src="@drawable/notifications"
+                android:contentDescription="Promotion"
+                android:background="@drawable/iconbutton" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Special Offer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enjoy selected FADE &amp; FAITH promotions."
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/promotionIndicator"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/check"
+                android:contentDescription="Unread" />
+
+        </LinearLayout>
+
+        <!-- SYSTEM -->
+
+        <LinearLayout
+            android:id="@+id/systemNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="18dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="22dp">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:padding="10dp"
+                android:src="@drawable/notifications"
+                android:contentDescription="System notification"
+                android:background="@drawable/iconbutton" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome to FADE &amp; FAITH"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your barbering experience starts here."
+                    android:textColor="#888888"
+                    android:textSize="12sp"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/systemIndicator"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/check"
+                android:contentDescription="Unread"
+                android:alpha="0.25" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You're all caught up."
+            android:textColor="#777777"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

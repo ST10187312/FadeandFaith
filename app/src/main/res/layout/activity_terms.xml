@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="12dp"
+                android:src="@drawable/arrowback"
+                android:contentDescription="Back"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="TERMS"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms &amp; Conditions"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last updated: September 2026"
+            android:textColor="#D4AF37"
+            android:textSize="12sp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Using FADE &amp; FAITH"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Users are responsible for providing accurate account information and using the application in accordance with applicable laws and these terms."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Appointments"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Users are responsible for reviewing their selected barber, service, appointment date and appointment time before confirming a booking."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Cancellations"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancellation rules may vary according to the barber or business using the platform. Applicable cancellation information should be displayed to the user before confirmation."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Payments"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Where online payments are supported, transactions should be processed through the selected payment provider. Payment details should not be stored insecurely by the application."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Service Availability"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Appointment availability depends on the operating hours, services and schedules configured by the relevant barber or business."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp" />
+
+    </LinearLayout>
+
+</ScrollView>

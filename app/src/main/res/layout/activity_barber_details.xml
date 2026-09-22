@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050505">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="10dp"
+            android:src="@drawable/arrowback"
+            android:contentDescription="Back"
+            android:background="@drawable/iconbutton" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingEnd="42dp"
+            android:text="BARBER PROFILE"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+    </LinearLayout>
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+
+
+            <ImageView
+                android:id="@+id/barberImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/james"
+                android:contentDescription="Barber profile image" />
+
+
+
+
+            <TextView
+                android:id="@+id/barberName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="James"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+
+
+
+            <TextView
+                android:id="@+id/barberRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="SENIOR BARBER"
+                android:textColor="#D4AF37"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15" />
+
+
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="18dp"
+                android:background="#D4AF37" />
+
+
+
+
+            <TextView
+                android:id="@+id/barberDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="James specialises in precision fades, modern haircuts and detailed styling."
+                android:textColor="#999999"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp" />
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:background="@drawable/homecard">
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RATING"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/barberRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="4.9 / 5"
+                        android:textColor="#D4AF37"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:background="#292929" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EXPERIENCE"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/barberExperience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="8 YEARS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bookButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="32dp"
+                android:text="BOOK WITH THIS BARBER"
+                android:textColor="#050505"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.07"
+                android:background="@drawable/goldbutton" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="12dp"
+                android:src="@drawable/arrowback"
+                android:contentDescription="Back"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="LANGUAGE"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Your Language"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select the language you'd like to use in FADE &amp; FAITH."
+            android:textColor="#8A8A8A"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginBottom="26dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CURRENT LANGUAGE"
+                android:textColor="#8A8A8A"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:id="@+id/selectedLanguageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textColor="#D4AF37"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="7dp" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/englishOption"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="English"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/englishIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/isizuluOption"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="isiZulu"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/isizuluIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                android:alpha="0.25" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/afrikaansOption"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Afrikaans"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/afrikaansIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                android:alpha="0.25" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/isixhosaOption"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="isiXhosa"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/isixhosaIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                android:alpha="0.25" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/sepediOption"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sepedi"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/sepediIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                android:alpha="0.25" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="More South African languages can be added as the translation system is expanded."
+            android:textColor="#666666"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+</ScrollView>

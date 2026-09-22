@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Manage Availability"
+            android:textColor="#D4AF37"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Set the days and times when you are available for bookings."
+            android:textColor="#BBBBBB"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/dateInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="25dp"
+            android:hint="Date (YYYY-MM-DD)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/startTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:hint="Start time (HH:MM)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/endTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:hint="End time (HH:MM)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:inputType="time" />
+
+        <Switch
+            android:id="@+id/availableSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Available for bookings"
+            android:textColor="#FFFFFF"
+            android:checked="true" />
+
+        <Button
+            android:id="@+id/saveAvailabilityButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Save Availability" />
+
+    </LinearLayout>
+
+</ScrollView>

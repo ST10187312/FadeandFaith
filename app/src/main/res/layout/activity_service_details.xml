@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050505">
+
+    <!-- TOP BAR -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="10dp"
+            android:src="@drawable/arrowback"
+            android:contentDescription="Back"
+            android:background="@drawable/iconbutton" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingEnd="42dp"
+            android:text="SERVICE DETAILS"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+    </LinearLayout>
+
+
+    <!-- CONTENT -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- SERVICE NUMBER -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FADE &amp; FAITH"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.18" />
+
+
+            <!-- SERVICE NAME -->
+
+            <TextView
+                android:id="@+id/serviceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Haircut &amp; Beard Trim"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+
+            <!-- GOLD LINE -->
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="18dp"
+                android:background="#D4AF37" />
+
+
+            <!-- DESCRIPTION -->
+
+            <TextView
+                android:id="@+id/serviceDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Precision haircut finished with a professional beard trim and styling."
+                android:textColor="#999999"
+                android:textSize="15sp"
+                android:lineSpacingExtra="6dp" />
+
+
+            <!-- INFORMATION CARD -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:background="@drawable/homecard">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PRICE"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/servicePrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="R180"
+                        android:textColor="#D4AF37"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="55dp"
+                    android:background="#292929" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DURATION"
+                        android:textColor="#777777"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/serviceDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="9dp"
+                        android:text="45 MINUTES"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- WHAT'S INCLUDED -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="WHAT'S INCLUDED"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="✓  Professional consultation&#10;&#10;✓  Premium barbering service&#10;&#10;✓  Styling and finishing&#10;&#10;✓  Professional aftercare advice"
+                android:textColor="#999999"
+                android:textSize="14sp"
+                android:lineSpacingExtra="2dp" />
+
+
+            <!-- BOOK BUTTON -->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bookButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="35dp"
+                android:text="BOOK THIS SERVICE"
+                android:textColor="#050505"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:background="@drawable/goldbutton" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

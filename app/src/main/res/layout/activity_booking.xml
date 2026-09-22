@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#050505">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:padding="10dp"
+            android:src="@drawable/arrowback"
+            android:contentDescription="Back"
+            android:background="@drawable/iconbutton" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingEnd="42dp"
+            android:text="BOOK APPOINTMENT"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.07" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Secure your appointment"
+                android:textColor="#FFFFFF"
+                android:textSize="27sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Choose when you'd like to look your best."
+                android:textColor="#888888"
+                android:textSize="14sp" />
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="SERVICE"
+                android:textColor="#777777"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.14" />
+
+            <LinearLayout
+                android:id="@+id/serviceSelection"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:background="@drawable/homecard"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/selectedServiceText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select service"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R180"
+                    android:textColor="#D4AF37"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="BARBER"
+                android:textColor="#777777"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.14" />
+
+            <LinearLayout
+                android:id="@+id/barberSelection"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:background="@drawable/homecard"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/selectedBarberText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Any available barber"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="DATE"
+                android:textColor="#777777"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="8dp"
+                android:background="@drawable/homecard">
+
+                <TextView
+                    android:id="@+id/selectedDateText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select date"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dateButton"
+                    android:layout_width="105dp"
+                    android:layout_height="46dp"
+                    android:text="CHOOSE"
+                    android:textColor="#050505"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:background="@drawable/goldbutton" />
+
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="TIME"
+                android:textColor="#777777"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.14" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="8dp"
+                android:background="@drawable/homecard">
+
+                <TextView
+                    android:id="@+id/selectedTimeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select time"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/timeButton"
+                    android:layout_width="105dp"
+                    android:layout_height="46dp"
+                    android:text="CHOOSE"
+                    android:textColor="#050505"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"
+                    android:background="@drawable/goldbutton" />
+
+            </LinearLayout>
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="25dp"
+                android:text="CONTINUE"
+                android:textColor="#050505"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:background="@drawable/goldbutton" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

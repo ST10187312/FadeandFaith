@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="35dp">
+
+        <!-- TOP BAR -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:padding="11dp"
+                android:src="@drawable/arrowback"
+                android:background="@drawable/iconbutton"
+                android:contentDescription="Back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="PAYMENT METHOD"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="44dp"
+                android:layout_height="44dp" />
+
+        </LinearLayout>
+
+
+        <!-- HEADER -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp">
+
+            <ImageView
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:padding="18dp"
+                android:src="@drawable/check"
+                android:background="@drawable/avatar"
+                android:contentDescription="Payment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="YOUR PAYMENT OPTIONS"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Choose how you would like to pay for your appointments."
+                android:textColor="#777777"
+                android:textSize="13sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
+        <!-- SAVED PAYMENT METHODS -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="SAVED PAYMENT METHODS"
+            android:textColor="#D4AF37"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12" />
+
+
+        <!-- CARD -->
+
+        <LinearLayout
+            android:id="@+id/cardOption"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="11dp"
+                android:src="@drawable/check"
+                android:background="@drawable/iconbutton"
+                android:contentDescription="Card"
+                app:tint="#D4AF37" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Credit / Debit Card"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/savedCardText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="No card added"
+                    android:textColor="#777777"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/cardIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                app:tint="#D4AF37" />
+
+        </LinearLayout>
+
+
+        <!-- ADD CARD -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addCardButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="25dp"
+            android:text="+  ADD NEW CARD"
+            android:textColor="#D4AF37"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:background="@drawable/homecard"
+            app:backgroundTint="@null" />
+
+
+        <!-- OTHER PAYMENT OPTIONS -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="OTHER PAYMENT OPTIONS"
+            android:textColor="#D4AF37"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12" />
+
+
+        <!-- GOOGLE PAY -->
+
+        <LinearLayout
+            android:id="@+id/googlePayOption"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="G"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:text="Google Pay"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/googlePayIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                app:tint="#D4AF37" />
+
+        </LinearLayout>
+
+
+        <!-- APPLE PAY -->
+
+        <LinearLayout
+            android:id="@+id/applePayOption"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#FFFFFF"
+                android:textSize="21sp"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:text="Apple Pay"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/applePayIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                app:tint="#D4AF37" />
+
+        </LinearLayout>
+
+
+        <!-- CASH -->
+
+        <LinearLayout
+            android:id="@+id/cashOption"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/homecard"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="R"
+                android:textColor="#D4AF37"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="15dp"
+                android:text="Cash"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/cashIndicator"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/check"
+                android:contentDescription="Selected"
+                app:tint="#D4AF37" />
+
+        </LinearLayout>
+
+
+        <!-- SAVE -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="SAVE PAYMENT METHOD"
+            android:textColor="#050505"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:background="@drawable/goldbutton"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</ScrollView>

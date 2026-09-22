@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#050505">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="28dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F&amp;F"
+            android:textColor="#D4AF37"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="STAFF LOGIN"
+            android:textColor="#FFFFFF"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Sign in to access the staff dashboard."
+            android:textColor="#888888"
+            android:textSize="14sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="42dp" />
+
+        <EditText
+            android:id="@+id/staffEmailInput"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:hint="Staff email address"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:inputType="textEmailAddress"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/input" />
+
+        <EditText
+            android:id="@+id/staffPasswordInput"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="14dp"
+            android:hint="Password"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777"
+            android:inputType="textPassword"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:background="@drawable/input" />
+
+        <Button
+            android:id="@+id/staffLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="28dp"
+            android:text="STAFF SIGN IN"
+            android:textColor="#050505"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:background="@drawable/goldbutton" />
+
+        <TextView
+            android:id="@+id/backToLoginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="BACK TO CUSTOMER LOGIN"
+            android:textColor="#D4AF37"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</ScrollView>

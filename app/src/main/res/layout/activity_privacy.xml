@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="12dp"
+                android:src="@drawable/arrowback"
+                android:contentDescription="Back"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="PRIVACY"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last updated: September 2026"
+            android:textColor="#D4AF37"
+            android:textSize="12sp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Information We Collect"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FADE &amp; FAITH may collect information required to create and manage your account, including your name, email address, phone number, profile information and appointment details."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Account Security"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account credentials should be protected using secure authentication practices. Passwords should never be stored as plain text."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Appointments"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Appointment information may be stored so that users can view, manage and receive updates about their bookings."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Notifications"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="If notifications are enabled, FADE &amp; FAITH may send appointment reminders, service updates and other relevant notifications."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="22dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Data Protection"
+            android:textColor="#D4AF37"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Security controls, secure network communication and appropriate access controls will be implemented as the application moves toward production."
+            android:textColor="#CCCCCC"
+            android:textSize="14sp"
+            android:lineSpacingExtra="6dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp" />
+
+    </LinearLayout>
+
+</ScrollView>

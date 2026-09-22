@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginBottom="28dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="12dp"
+                android:src="@drawable/arrowback"
+                android:contentDescription="Back"
+                android:background="@drawable/iconbutton" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ABOUT"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="46dp"
+                android:layout_height="46dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FADE &amp; FAITH"
+            android:textColor="#D4AF37"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="0.08"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PREMIUM BARBERING"
+            android:textColor="#888888"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:letterSpacing="0.2"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OUR MISSION"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FADE &amp; FAITH is designed to make premium barbering more convenient, personal and accessible. Discover your barber, choose your service and manage your appointments from one place."
+                android:textColor="#CCCCCC"
+                android:textSize="14sp"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginTop="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/homecard"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VERSION"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.0.0"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Built with Android Studio and Kotlin."
+            android:textColor="#666666"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:padding="20dp" />
+
+    </LinearLayout>
+
+</ScrollView>

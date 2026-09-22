@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="35dp">
+
+        <!-- TOP BAR -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:padding="11dp"
+                android:src="@drawable/arrowback"
+                android:background="@drawable/iconbutton"
+                android:contentDescription="Back" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="EDIT PROFILE"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
+
+            <View
+                android:layout_width="44dp"
+                android:layout_height="44dp" />
+
+        </LinearLayout>
+
+
+        <!-- TITLE -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="25dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:padding="20dp"
+                android:src="@drawable/person"
+                android:background="@drawable/avatar"
+                android:contentDescription="Profile picture"
+                app:tint="#D4AF37" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="PERSONAL INFORMATION"
+                android:textColor="#D4AF37"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Keep your profile information up to date."
+                android:textColor="#777777"
+                android:textSize="13sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
+        <!-- FULL NAME -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="FULL NAME"
+            android:textColor="#AAAAAA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/input"
+            android:hint="Enter your full name"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:textSize="14sp"
+            android:inputType="textPersonName" />
+
+
+        <!-- EMAIL -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="EMAIL ADDRESS"
+            android:textColor="#AAAAAA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/input"
+            android:hint="Enter your email"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:textSize="14sp"
+            android:inputType="textEmailAddress" />
+
+
+        <!-- PHONE -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="PHONE NUMBER"
+            android:textColor="#AAAAAA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <EditText
+            android:id="@+id/phoneInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/input"
+            android:hint="+27 00 000 0000"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:textSize="14sp"
+            android:inputType="phone" />
+
+
+        <!-- LOCATION -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:text="LOCATION"
+            android:textColor="#AAAAAA"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <EditText
+            android:id="@+id/locationInput"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/input"
+            android:hint="City, Province"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:textSize="14sp"
+            android:inputType="textPostalAddress" />
+
+
+        <!-- SAVE -->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="SAVE CHANGES"
+            android:textColor="#050505"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:background="@drawable/goldbutton"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+
+</ScrollView>
