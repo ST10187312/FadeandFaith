@@ -1,8 +1,8 @@
-Fade and Fade 
+Fade and Faith
 
 Your Fade. Your Barber. Your Time.
 
-About Fade and Fade
+About Fade and Faith
 
 Fade and Fade is a digital barber shop appointment and customer management application designed to make getting a professional fade haircut easier, faster, and more convenient.
 
@@ -88,7 +88,7 @@ For the Business:
 
 Who Is It For?
 
-Fade and Fade is designed for:
+Fade and Faith is designed for:
 
 * Customers who regularly get fade haircuts
 * Customers who prefer appointments
@@ -113,7 +113,7 @@ Future versions could include:
 
 Project Vision
 
-Fade and Fade aims to transform the traditional barber experience from:
+Fade and Faith aims to transform the traditional barber experience from:
 
 Arrive → Wait → Find a Barber → Get a Cut
 
@@ -123,6 +123,6 @@ Create Profile → Choose Barber → Book → Arrive → Get Your Fade
 
 The goal is to create a simple digital connection between customers and barbers while making appointments more organised and convenient.
 
-💈 Fade and Fade
+💈 Fade and Faith
 
 Your Fade. Your Barber. Your Time.
