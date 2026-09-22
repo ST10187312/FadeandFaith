@@ -131,4 +131,4 @@ The goal is to create a simple digital connection between customers and barbers 
 Your Fade. Your Barber. Your Time.
 
 St10187312 Siyabonga Makhubu
-
+Tshimologo Mabunda ST10328168
