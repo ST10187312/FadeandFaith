@@ -8,13 +8,15 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class StaffAvailability : AppCompatActivity() {
 
-    private lateinit var db: DatabaseHelper
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var sessionManager: SessionManager
 
     private lateinit var dateInput: EditText
     private lateinit var startTimeInput: EditText
@@ -26,7 +28,8 @@ class StaffAvailability : AppCompatActivity() {
 
         setContentView(R.layout.activity_staff_availability)
 
-        db = DatabaseHelper(this)
+        firestore = FirebaseFirestore.getInstance()
+        sessionManager = SessionManager(this)
 
         dateInput = findViewById(R.id.dateInput)
         startTimeInput = findViewById(R.id.startTimeInput)
@@ -63,30 +66,18 @@ class StaffAvailability : AppCompatActivity() {
             { _, year, month, day ->
 
                 val chosenDate = Calendar.getInstance()
+                chosenDate.set(year, month, day)
 
-                chosenDate.set(
-                    year,
-                    month,
-                    day
-                )
+                val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-                val formatter = SimpleDateFormat(
-                    "yyyy-MM-dd",
-                    Locale.getDefault()
-                )
-
-                dateInput.setText(
-                    formatter.format(chosenDate.time)
-                )
+                dateInput.setText(formatter.format(chosenDate.time))
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
 
-        datePicker.datePicker.minDate =
-            System.currentTimeMillis()
-
+        datePicker.datePicker.minDate = System.currentTimeMillis()
         datePicker.show()
     }
 
@@ -97,14 +88,8 @@ class StaffAvailability : AppCompatActivity() {
         val timePicker = TimePickerDialog(
             this,
             { _, hourOfDay, minute ->
-
                 target.setText(
-                    String.format(
-                        Locale.getDefault(),
-                        "%02d:%02d",
-                        hourOfDay,
-                        minute
-                    )
+                    String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute)
                 )
             },
             calendar.get(Calendar.HOUR_OF_DAY),
@@ -117,149 +102,89 @@ class StaffAvailability : AppCompatActivity() {
 
     private fun saveAvailability() {
 
-        val session = SessionManager(this)
+        val staffUserId = sessionManager.getUserId()
 
-        val staffUserId = session.getUserId()
-
-        if (staffUserId <= 0) {
-
-            Toast.makeText(
-                this,
-                "Staff session not found",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (staffUserId == null) {
+            Toast.makeText(this, "Staff session not found", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val barberId =
-            db.getBarberIdForStaff(staffUserId)
+        val barberId = sessionManager.getStaffBarberId()
 
         if (barberId == null) {
-
             Toast.makeText(
                 this,
                 "Staff profile is not linked to a barber",
                 Toast.LENGTH_LONG
             ).show()
-
             return
         }
 
-        val date =
-            dateInput.text.toString().trim()
+        val date = dateInput.text.toString().trim()
+        val startTime = startTimeInput.text.toString().trim()
+        val endTime = endTimeInput.text.toString().trim()
+        val available = availableSwitch.isChecked
 
-        val startTime =
-            startTimeInput.text.toString().trim()
-
-        val endTime =
-            endTimeInput.text.toString().trim()
-
-        val available =
-            availableSwitch.isChecked
-
-        if (
-            date.isEmpty() ||
-            startTime.isEmpty() ||
-            endTime.isEmpty()
-        ) {
-
-            Toast.makeText(
-                this,
-                "Please complete all fields",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (date.isEmpty() || startTime.isEmpty() || endTime.isEmpty()) {
+            Toast.makeText(this, "Please complete all fields", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val formatter =
-            SimpleDateFormat(
-                "yyyy-MM-dd",
-                Locale.getDefault()
-            )
-
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         formatter.isLenient = false
 
         try {
             formatter.parse(date)
         } catch (e: Exception) {
-
-            Toast.makeText(
-                this,
-                "Please select a valid date",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            Toast.makeText(this, "Please select a valid date", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (!isValidTime(startTime) ||
-            !isValidTime(endTime)
-        ) {
-
+        if (!isValidTime(startTime) || !isValidTime(endTime)) {
             Toast.makeText(
                 this,
                 "Please select valid start and end times",
                 Toast.LENGTH_SHORT
             ).show()
-
             return
         }
 
-        if (timeToMinutes(endTime) <= timeToMinutes(startTime)) {
+        val startMinutes = timeToMinutes(startTime)
+        val endMinutes = timeToMinutes(endTime)
 
+        if (endMinutes <= startMinutes) {
             Toast.makeText(
                 this,
                 "End time must be after start time",
                 Toast.LENGTH_LONG
             ).show()
-
             return
         }
 
-        try {
+        val availabilityData = hashMapOf(
+            "barberId" to barberId,
+            "date" to date,
+            "startTime" to startMinutes,
+            "endTime" to endMinutes,
+            "availability" to available
+        )
 
-            val availabilityId = db.setBarberAvailability(
-                barberId = barberId,
-                date = date,
-                startTime = startTime,
-                endTime = endTime,
-                available = available
-            )
-
-            if (availabilityId <= 0) {
+        firestore.collection("availability")
+            .add(availabilityData)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Availability saved for $date", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
                 Toast.makeText(
                     this,
-                    "Availability could not be saved.",
+                    "Could not save availability: ${e.message}",
                     Toast.LENGTH_LONG
                 ).show()
-                return
             }
-
-            Toast.makeText(
-                this,
-                "Availability saved for $date",
-                Toast.LENGTH_SHORT
-            ).show()
-
-        } catch (e: Exception) {
-
-            Toast.makeText(
-                this,
-                "Could not save availability.",
-                Toast.LENGTH_LONG
-            ).show()
-        }
     }
 
     private fun isValidTime(time: String): Boolean {
-
-        if (!Regex("^([01]\\d|2[0-3]):[0-5]\\d$").matches(time)) {
-            return false
-        }
-
-        return true
+        return Regex("^([01]\\d|2[0-3]):[0-5]\\d$").matches(time)
     }
 
     private fun timeToMinutes(time: String): Int {
@@ -270,7 +195,6 @@ class StaffAvailability : AppCompatActivity() {
             return -1
         }
 
-        return parts[0].toInt() * 60 +
-                parts[1].toInt()
+        return parts[0].toInt() * 60 + parts[1].toInt()
     }
 }

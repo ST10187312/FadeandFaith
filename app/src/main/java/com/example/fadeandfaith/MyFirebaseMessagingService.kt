@@ -20,26 +20,29 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         showNotification(title, body)
     }
 
-
     override fun onNewToken(token: String) {
         super.onNewToken(token)
 
         val sessionManager = SessionManager(this)
-        val database = DatabaseHelper(this)
+        val userId = sessionManager.getUserId() ?: return
 
-        val userId = sessionManager.getUserId()
-
-        if (userId > 0 && database.getUserRole(userId) == "STAFF") {
-
-            val uid = database.getFirebaseUidForUser(userId)
-
-            if (uid != null) {
-                FirebaseFirestore.getInstance()
-                    .collection("staff_tokens")
-                    .document(uid)
-                    .set(mapOf("token" to token))
-            }
+        if (!sessionManager.isLoggedIn()) {
+            return
         }
+
+        val role = sessionManager.getStaffRole()
+
+        val isStaffOrBoss =
+            role.equals("STAFF", ignoreCase = true) || role.equals("BOSS", ignoreCase = true)
+
+        if (!isStaffOrBoss) {
+            return
+        }
+
+        FirebaseFirestore.getInstance()
+            .collection("staff_tokens")
+            .document(userId)
+            .set(mapOf("token" to token))
     }
 
     private fun showNotification(title: String, body: String) {

@@ -8,6 +8,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Login : AppCompatActivity() {
 
@@ -19,16 +21,16 @@ class Login : AppCompatActivity() {
     private lateinit var registerButton: TextView
     private lateinit var staffLoginButton: TextView
 
-    private lateinit var database: DatabaseHelper
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
 
-        database = DatabaseHelper(this)
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         initializeViews()
         setupButtons()
@@ -68,9 +70,10 @@ class Login : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
 
-                    loginButton.isEnabled = true
-
                     if (!task.isSuccessful) {
+
+                        loginButton.isEnabled = true
+
                         Toast.makeText(
                             this,
                             "Incorrect email or password.",
@@ -82,6 +85,7 @@ class Login : AppCompatActivity() {
                     val uid = auth.currentUser?.uid
 
                     if (uid == null) {
+                        loginButton.isEnabled = true
                         Toast.makeText(
                             this,
                             "Login failed. Please try again.",
@@ -90,27 +94,43 @@ class Login : AppCompatActivity() {
                         return@addOnCompleteListener
                     }
 
-                    var userId = database.findLocalUserIdByFirebaseUid(uid)
+                    val userDocRef = firestore.collection("users").document(uid)
 
-                    if (userId == -1L) {
-                        userId = database.createLocalProfileForFirebaseUser(
-                            uid,
-                            email.substringBefore("@"),
-                            email,
-                            ""
-                        )
-                    }
+                    userDocRef.get()
+                        .addOnSuccessListener { document ->
 
-                    SessionManager(this).login(userId)
+                            if (!document.exists()) {
 
-                    startActivity(
-                        Intent(
-                            this,
-                            Home::class.java
-                        )
-                    )
+                                // Edge case: signed into Firebase but no Firestore
+                                // profile yet -- create a basic one so nothing
+                                // downstream crashes on a missing document.
+                                val userData = hashMapOf(
+                                    "name" to email.substringBefore("@"),
+                                    "email" to email,
+                                    "phone" to "",
+                                    "location" to "",
+                                    "role" to "CUSTOMER",
+                                    "createdAt" to FieldValue.serverTimestamp()
+                                )
 
-                    finishAffinity()
+                                userDocRef.set(userData)
+                            }
+
+                            SessionManager(this).login(uid)
+
+                            startActivity(Intent(this, Home::class.java))
+                            finishAffinity()
+                        }
+                        .addOnFailureListener { e ->
+
+                            loginButton.isEnabled = true
+
+                            Toast.makeText(
+                                this,
+                                "Could not load your profile: ${e.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
                 }
         }
 
@@ -122,7 +142,6 @@ class Login : AppCompatActivity() {
             startActivity(Intent(this, Register::class.java))
         }
 
-        // STAFF LOGIN
         staffLoginButton.setOnClickListener {
             startActivity(Intent(this, StaffLogin::class.java))
         }

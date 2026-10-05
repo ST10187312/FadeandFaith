@@ -6,29 +6,29 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Receipt : AppCompatActivity() {
 
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var firestore: FirebaseFirestore
 
     private lateinit var serviceText: TextView
     private lateinit var barberText: TextView
     private lateinit var dateText: TextView
     private lateinit var timeText: TextView
     private lateinit var priceText: TextView
-    private lateinit var statusText: TextView
     private lateinit var referenceText: TextView
 
     private lateinit var backButton: Button
     private lateinit var doneButton: Button
 
-    private var bookingId: Long = -1L
+    private var bookingId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_receipt)
 
-        databaseHelper = DatabaseHelper(this)
+        firestore = FirebaseFirestore.getInstance()
 
         serviceText = findViewById(R.id.serviceText)
         barberText = findViewById(R.id.barberText)
@@ -40,15 +40,14 @@ class Receipt : AppCompatActivity() {
         backButton = findViewById(R.id.backButton)
         doneButton = findViewById(R.id.paymentButton)
 
-        bookingId = intent.getLongExtra("BOOKING_ID", -1L)
+        bookingId = intent.getStringExtra("BOOKING_ID") ?: ""
 
-        if (bookingId <= 0L) {
+        if (bookingId.isEmpty()) {
             Toast.makeText(
                 this,
                 "Booking information could not be found.",
                 Toast.LENGTH_LONG
             ).show()
-
             finish()
             return
         }
@@ -69,94 +68,50 @@ class Receipt : AppCompatActivity() {
 
     private fun loadReceipt() {
 
-        val bookingCursor = databaseHelper.getBooking(bookingId)
+        firestore.collection("bookings")
+            .document(bookingId)
+            .get()
+            .addOnSuccessListener { document ->
 
-        if (bookingCursor == null) {
-            Toast.makeText(
-                this,
-                "Booking could not be found.",
-                Toast.LENGTH_LONG
-            ).show()
+                if (!document.exists()) {
+                    Toast.makeText(
+                        this,
+                        "Booking could not be found.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    finish()
+                    return@addOnSuccessListener
+                }
 
-            finish()
-            return
-        }
+                val serviceName = document.getString("serviceName") ?: ""
+                val barberName = document.getString("barberName") ?: ""
+                val bookingDate = document.getString("bookingDate") ?: ""
+                val bookingTime = document.getString("bookingTime") ?: ""
+                val price = document.getDouble("price") ?: 0.0
+                val status = document.getString("status") ?: "pending"
 
-        bookingCursor.use { cursor ->
+                serviceText.text = serviceName
+                barberText.text = barberName
+                dateText.text = bookingDate
+                timeText.text = bookingTime
+                priceText.text = String.format("R%.2f", price)
 
-            if (!cursor.moveToFirst()) {
+                referenceText.text =
+                    if (status.equals("confirmed", ignoreCase = true)) {
+                        // Short, readable reference built from the booking's
+                        // own document ID rather than a separate payments table.
+                        "Ref: ${bookingId.take(8).uppercase()}"
+                    } else {
+                        "Status: ${status.replaceFirstChar { it.uppercase() }}"
+                    }
+            }
+            .addOnFailureListener { e ->
                 Toast.makeText(
                     this,
-                    "Booking could not be found.",
+                    "Booking could not be loaded: ${e.message}",
                     Toast.LENGTH_LONG
                 ).show()
-
                 finish()
-                return
             }
-
-            val serviceName =
-                cursor.getString(cursor.getColumnIndexOrThrow("service_name"))
-
-            val barberName =
-                cursor.getString(cursor.getColumnIndexOrThrow("barber_name"))
-
-            val bookingDate =
-                cursor.getString(cursor.getColumnIndexOrThrow("booking_date"))
-
-            val bookingTime =
-                cursor.getString(cursor.getColumnIndexOrThrow("booking_time"))
-
-            val price =
-                cursor.getDouble(cursor.getColumnIndexOrThrow("price"))
-
-            val status =
-                cursor.getString(cursor.getColumnIndexOrThrow("status"))
-
-            serviceText.text = serviceName
-            barberText.text = barberName
-            dateText.text = bookingDate
-            timeText.text = bookingTime
-            priceText.text = String.format("R%.2f", price)
-
-        }
-
-        loadPayment()
-    }
-
-    private fun loadPayment() {
-
-        val paymentCursor =
-            databaseHelper.getPaymentForBooking(bookingId)
-
-        if (paymentCursor == null) {
-            referenceText.text = "Not paid"
-            return
-        }
-
-        paymentCursor.use { cursor ->
-
-            if (!cursor.moveToFirst()) {
-                referenceText.text = "Not paid"
-                return
-            }
-
-            val reference =
-                cursor.getString(
-                    cursor.getColumnIndexOrThrow("transaction_reference")
-                )
-
-            val paymentStatus =
-                cursor.getString(
-                    cursor.getColumnIndexOrThrow("payment_status")
-                )
-
-            referenceText.text =
-                if (paymentStatus.equals("PAID", ignoreCase = true)) {
-                    reference
-                } else {
-                    "Payment not completed"
-                }
-        }
     }
 }

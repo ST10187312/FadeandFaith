@@ -28,10 +28,7 @@ class Barbers : AppCompatActivity() {
         setContentView(R.layout.activity_barbers)
 
         selectionMode =
-            intent.getBooleanExtra(
-                "SELECTION_MODE",
-                false
-            )
+            intent.getBooleanExtra("SELECTION_MODE", false)
 
         initializeViews()
         setupButtons()
@@ -39,29 +36,16 @@ class Barbers : AppCompatActivity() {
 
     private fun initializeViews() {
 
-        backButton =
-            findViewById(R.id.backButton)
+        backButton = findViewById(R.id.backButton)
 
-        jamesBookButton =
-            findViewById(R.id.jamesBookButton)
+        jamesBookButton = findViewById(R.id.jamesBookButton)
+        michaelBookButton = findViewById(R.id.michaelBookButton)
+        davidBookButton = findViewById(R.id.davidBookButton)
 
-        michaelBookButton =
-            findViewById(R.id.michaelBookButton)
-
-        davidBookButton =
-            findViewById(R.id.davidBookButton)
-
-        navHome =
-            findViewById(R.id.navHome)
-
-        navServices =
-            findViewById(R.id.navServices)
-
-        navBooking =
-            findViewById(R.id.navBooking)
-
-        navProfile =
-            findViewById(R.id.navProfile)
+        navHome = findViewById(R.id.navHome)
+        navServices = findViewById(R.id.navServices)
+        navBooking = findViewById(R.id.navBooking)
+        navProfile = findViewById(R.id.navProfile)
     }
 
     private fun setupButtons() {
@@ -70,89 +54,49 @@ class Barbers : AppCompatActivity() {
             finish()
         }
 
+        // These three must match your Firestore barbers/{name} document
+        // names exactly, including capitalization.
         jamesBookButton.setOnClickListener {
-            openBarber(1L)
+            openBarber("James")
         }
 
         michaelBookButton.setOnClickListener {
-            openBarber(2L)
+            openBarber("Michael")
         }
 
         davidBookButton.setOnClickListener {
-            openBarber(3L)
+            openBarber("David")
         }
 
         navHome.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Home::class.java
-                )
-            )
-
+            startActivity(Intent(this, Home::class.java))
             finish()
         }
 
         navServices.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Services::class.java
-                )
-            )
-
+            startActivity(Intent(this, Services::class.java))
             finish()
         }
 
         navBooking.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Booking::class.java
-                )
-            )
-
+            startActivity(Intent(this, Booking::class.java))
             finish()
         }
 
         navProfile.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Profile::class.java
-                )
-            )
-
+            startActivity(Intent(this, Profile::class.java))
             finish()
         }
     }
 
-    private fun openBarber(barberId: Long) {
+    private fun openBarber(barberId: String) {
 
-        val intent =
-            Intent(
-                this,
-                BarberDetails::class.java
-            )
+        val intent = Intent(this, BarberDetails::class.java)
 
-        intent.putExtra(
-            "BARBER_ID",
-            barberId
-        )
+        intent.putExtra("BARBER_ID", barberId)
+        intent.putExtra("SELECTION_MODE", selectionMode)
 
-        intent.putExtra(
-            "SELECTION_MODE",
-            selectionMode
-        )
-
-        startActivityForResult(
-            intent,
-            REQUEST_BARBER
-        )
+        startActivityForResult(intent, REQUEST_BARBER)
     }
 
     override fun onActivityResult(
@@ -160,12 +104,7 @@ class Barbers : AppCompatActivity() {
         resultCode: Int,
         data: Intent?
     ) {
-
-        super.onActivityResult(
-            requestCode,
-            resultCode,
-            data
-        )
+        super.onActivityResult(requestCode, resultCode, data)
 
         if (
             requestCode == REQUEST_BARBER &&
@@ -173,36 +112,24 @@ class Barbers : AppCompatActivity() {
             data != null
         ) {
 
-            val resultIntent =
-                Intent()
+            val resultIntent = Intent()
 
             resultIntent.putExtra(
                 "BARBER_ID",
-                data.getLongExtra(
-                    "BARBER_ID",
-                    -1L
-                )
+                data.getStringExtra("BARBER_ID") ?: ""
             )
 
             resultIntent.putExtra(
                 "BARBER_NAME",
-                data.getStringExtra(
-                    "BARBER_NAME"
-                ) ?: ""
+                data.getStringExtra("BARBER_NAME") ?: ""
             )
 
-            setResult(
-                RESULT_OK,
-                resultIntent
-            )
-
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
 
     companion object {
-
-        private const val REQUEST_BARBER =
-            200
+        private const val REQUEST_BARBER = 200
     }
 }

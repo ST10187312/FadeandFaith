@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Register : AppCompatActivity() {
 
@@ -22,16 +24,16 @@ class Register : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var loginButton: TextView
 
-    private lateinit var database: DatabaseHelper
     private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_register)
 
-        database = DatabaseHelper(this)
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         initializeViews()
         setupButtons()
@@ -93,49 +95,9 @@ class Register : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
 
-                    registerButton.isEnabled = true
+                    if (!task.isSuccessful) {
 
-                    if (task.isSuccessful) {
-
-                        val uid = auth.currentUser?.uid
-
-                        if (uid == null) {
-                            Toast.makeText(
-                                this,
-                                "Registration failed. Please try again.",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            return@addOnCompleteListener
-                        }
-
-                        val userId = database.createLocalProfileForFirebaseUser(
-                            uid,
-                            name,
-                            email,
-                            phone
-                        )
-
-                        if (userId == -1L) {
-                            Toast.makeText(
-                                this,
-                                "Account created, but saving your profile failed.",
-                                Toast.LENGTH_LONG
-                            ).show()
-                            return@addOnCompleteListener
-                        }
-
-                        SessionManager(this).login(userId)
-
-                        Toast.makeText(
-                            this,
-                            "Account created successfully.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        startActivity(Intent(this, Home::class.java))
-                        finishAffinity()
-
-                    } else {
+                        registerButton.isEnabled = true
 
                         val message = when (task.exception) {
                             is FirebaseAuthUserCollisionException ->
@@ -153,7 +115,56 @@ class Register : AppCompatActivity() {
                         }
 
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                        return@addOnCompleteListener
                     }
+
+                    val uid = auth.currentUser?.uid
+
+                    if (uid == null) {
+                        registerButton.isEnabled = true
+                        Toast.makeText(
+                            this,
+                            "Registration failed. Please try again.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return@addOnCompleteListener
+                    }
+
+                    val userData = hashMapOf(
+                        "name" to name,
+                        "email" to email.lowercase(),
+                        "phone" to phone,
+                        "location" to "",
+                        "role" to "CUSTOMER",
+                        "createdAt" to FieldValue.serverTimestamp()
+                    )
+
+                    firestore.collection("users")
+                        .document(uid)
+                        .set(userData)
+                        .addOnSuccessListener {
+
+                            SessionManager(this).login(uid)
+
+                            Toast.makeText(
+                                this,
+                                "Account created successfully.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            startActivity(Intent(this, Home::class.java))
+                            finishAffinity()
+                        }
+                        .addOnFailureListener { e ->
+
+                            registerButton.isEnabled = true
+
+                            Toast.makeText(
+                                this,
+                                "Account created, but saving your profile failed: ${e.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
                 }
         }
 

@@ -7,8 +7,11 @@ import android.widget.LinearLayout
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 class Settings : AppCompatActivity() {
+
+    private lateinit var sessionManager: SessionManager
 
     private lateinit var backButton: ImageView
 
@@ -31,6 +34,8 @@ class Settings : AppCompatActivity() {
 
         setContentView(R.layout.activity_settings)
 
+        sessionManager = SessionManager(this)
+
         initializeViews()
         setupSwitches()
         setupClickListeners()
@@ -40,26 +45,14 @@ class Settings : AppCompatActivity() {
 
         backButton = findViewById(R.id.backButton)
 
-        notificationOption =
-            findViewById(R.id.notificationOption)
+        notificationOption = findViewById(R.id.notificationOption)
+        languageOption = findViewById(R.id.languageOption)
+        aboutOption = findViewById(R.id.aboutOption)
+        privacyOption = findViewById(R.id.privacyOption)
+        termsOption = findViewById(R.id.termsOption)
 
-        languageOption =
-            findViewById(R.id.languageOption)
-
-        aboutOption =
-            findViewById(R.id.aboutOption)
-
-        privacyOption =
-            findViewById(R.id.privacyOption)
-
-        termsOption =
-            findViewById(R.id.termsOption)
-
-        darkModeSwitch =
-            findViewById(R.id.darkModeSwitch)
-
-        notificationSwitch =
-            findViewById(R.id.notificationSwitch)
+        darkModeSwitch = findViewById(R.id.darkModeSwitch)
+        notificationSwitch = findViewById(R.id.notificationSwitch)
 
         navHome = findViewById(R.id.navHome)
         navServices = findViewById(R.id.navServices)
@@ -69,48 +62,32 @@ class Settings : AppCompatActivity() {
 
     private fun setupSwitches() {
 
-        darkModeSwitch.isChecked = true
-
-        notificationSwitch.isChecked = false
+        darkModeSwitch.isChecked = sessionManager.isDarkModeEnabled()
 
         darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
 
-            if (isChecked) {
+            sessionManager.setDarkModeEnabled(isChecked)
 
-                Toast.makeText(
-                    this,
-                    "Dark mode enabled.",
-                    Toast.LENGTH_SHORT
-                ).show()
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked) {
+                    AppCompatDelegate.MODE_NIGHT_YES
+                } else {
+                    AppCompatDelegate.MODE_NIGHT_NO
+                }
+            )
 
-            } else {
-
-                Toast.makeText(
-                    this,
-                    "Light mode selected.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            recreate()
         }
+
+        notificationSwitch.isChecked = true
 
         notificationSwitch.setOnCheckedChangeListener { _, isChecked ->
 
-            if (isChecked) {
-
-                Toast.makeText(
-                    this,
-                    "Notifications enabled.",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-            } else {
-
-                Toast.makeText(
-                    this,
-                    "Notifications disabled.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            Toast.makeText(
+                this,
+                if (isChecked) "Notifications enabled." else "Notifications disabled.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -121,98 +98,41 @@ class Settings : AppCompatActivity() {
         }
 
         notificationOption.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Notifications::class.java
-                )
-            )
+            startActivity(Intent(this, Notifications::class.java))
         }
 
         languageOption.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Language::class.java
-                )
-            )
+            startActivity(Intent(this, Language::class.java))
         }
 
         aboutOption.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    About::class.java
-                )
-            )
+            startActivity(Intent(this, About::class.java))
         }
 
         privacyOption.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Privacy::class.java
-                )
-            )
+            startActivity(Intent(this, Privacy::class.java))
         }
 
         termsOption.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Terms::class.java
-                )
-            )
+            startActivity(Intent(this, Terms::class.java))
         }
 
         navHome.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Home::class.java
-                )
-            )
-
+            startActivity(Intent(this, Home::class.java))
             finish()
         }
 
         navServices.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Services::class.java
-                )
-            )
-
+            startActivity(Intent(this, Services::class.java))
             finish()
         }
 
         navBooking.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    MyBookings::class.java
-                )
-            )
+            startActivity(Intent(this, MyBookings::class.java))
         }
 
         navProfile.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Profile::class.java
-                )
-            )
-
+            startActivity(Intent(this, Profile::class.java))
             finish()
         }
     }

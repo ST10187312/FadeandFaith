@@ -234,6 +234,12 @@
                 android:contentDescription="Unread"
                 android:alpha="0.25" />
 
+            <LinearLayout
+                android:id="@+id/notificationsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
         </LinearLayout>
 
         <TextView

@@ -21,16 +21,12 @@ class Services : AppCompatActivity() {
     private lateinit var navBooking: LinearLayout
     private lateinit var navProfile: LinearLayout
 
-    private lateinit var databaseHelper: DatabaseHelper
-
     private var selectionMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_services)
-
-        databaseHelper = DatabaseHelper(this)
 
         selectionMode =
             intent.getBooleanExtra(
@@ -44,32 +40,17 @@ class Services : AppCompatActivity() {
 
     private fun initializeViews() {
 
-        backButton =
-            findViewById(R.id.backButton)
+        backButton = findViewById(R.id.backButton)
 
-        haircutBookButton =
-            findViewById(R.id.haircutBookButton)
+        haircutBookButton = findViewById(R.id.haircutBookButton)
+        shaveBookButton = findViewById(R.id.shaveBookButton)
+        facialBookButton = findViewById(R.id.facialBookButton)
+        premiumBookButton = findViewById(R.id.premiumBookButton)
 
-        shaveBookButton =
-            findViewById(R.id.shaveBookButton)
-
-        facialBookButton =
-            findViewById(R.id.facialBookButton)
-
-        premiumBookButton =
-            findViewById(R.id.premiumBookButton)
-
-        navHome =
-            findViewById(R.id.navHome)
-
-        navServices =
-            findViewById(R.id.navServices)
-
-        navBooking =
-            findViewById(R.id.navBooking)
-
-        navProfile =
-            findViewById(R.id.navProfile)
+        navHome = findViewById(R.id.navHome)
+        navServices = findViewById(R.id.navServices)
+        navBooking = findViewById(R.id.navBooking)
+        navProfile = findViewById(R.id.navProfile)
     }
 
     private fun setupButtons() {
@@ -78,31 +59,27 @@ class Services : AppCompatActivity() {
             finish()
         }
 
+        // These four IDs must match your Firestore services/{id} document
+        // names exactly -- check your Firebase Console if any of these
+        // don't line up with what you actually named them.
         haircutBookButton.setOnClickListener {
-            openService(1L)
+            openService("haircut_beard")
         }
 
         shaveBookButton.setOnClickListener {
-            openService(2L)
+            openService("shave_haircut")
         }
 
         facialBookButton.setOnClickListener {
-            openService(3L)
+            openService("facial_shave")
         }
 
         premiumBookButton.setOnClickListener {
-            openService(4L)
+            openService("premium_experience")
         }
 
         navHome.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Home::class.java
-                )
-            )
-
+            startActivity(Intent(this, Home::class.java))
             finish()
         }
 
@@ -111,52 +88,24 @@ class Services : AppCompatActivity() {
         }
 
         navBooking.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Booking::class.java
-                )
-            )
-
+            startActivity(Intent(this, Booking::class.java))
             finish()
         }
 
         navProfile.setOnClickListener {
-
-            startActivity(
-                Intent(
-                    this,
-                    Profile::class.java
-                )
-            )
-
+            startActivity(Intent(this, Profile::class.java))
             finish()
         }
     }
 
-    private fun openService(serviceId: Long) {
+    private fun openService(serviceId: String) {
 
-        val intent =
-            Intent(
-                this,
-                ServiceDetails::class.java
-            )
+        val intent = Intent(this, ServiceDetails::class.java)
 
-        intent.putExtra(
-            "SERVICE_ID",
-            serviceId
-        )
+        intent.putExtra("SERVICE_ID", serviceId)
+        intent.putExtra("SELECTION_MODE", selectionMode)
 
-        intent.putExtra(
-            "SELECTION_MODE",
-            selectionMode
-        )
-
-        startActivityForResult(
-            intent,
-            REQUEST_SERVICE
-        )
+        startActivityForResult(intent, REQUEST_SERVICE)
     }
 
     override fun onActivityResult(
@@ -164,12 +113,7 @@ class Services : AppCompatActivity() {
         resultCode: Int,
         data: Intent?
     ) {
-
-        super.onActivityResult(
-            requestCode,
-            resultCode,
-            data
-        )
+        super.onActivityResult(requestCode, resultCode, data)
 
         if (
             requestCode == REQUEST_SERVICE &&
@@ -177,44 +121,29 @@ class Services : AppCompatActivity() {
             data != null
         ) {
 
-            val resultIntent =
-                Intent()
+            val resultIntent = Intent()
 
             resultIntent.putExtra(
                 "SERVICE_ID",
-                data.getLongExtra(
-                    "SERVICE_ID",
-                    -1L
-                )
+                data.getStringExtra("SERVICE_ID") ?: ""
             )
 
             resultIntent.putExtra(
                 "SERVICE_NAME",
-                data.getStringExtra(
-                    "SERVICE_NAME"
-                ) ?: ""
+                data.getStringExtra("SERVICE_NAME") ?: ""
             )
 
             resultIntent.putExtra(
                 "SERVICE_PRICE_VALUE",
-                data.getDoubleExtra(
-                    "SERVICE_PRICE_VALUE",
-                    0.0
-                )
+                data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
             )
 
-            setResult(
-                RESULT_OK,
-                resultIntent
-            )
-
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
     }
 
     companion object {
-
-        private const val REQUEST_SERVICE =
-            100
+        private const val REQUEST_SERVICE = 100
     }
 }

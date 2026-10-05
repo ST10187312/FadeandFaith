@@ -7,10 +7,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.firestore.FirebaseFirestore
 
 class BarberDetails : AppCompatActivity() {
 
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var firestore: FirebaseFirestore
 
     private lateinit var backButton: ImageView
     private lateinit var barberNameText: TextView
@@ -20,9 +21,7 @@ class BarberDetails : AppCompatActivity() {
     private lateinit var barberExperienceText: TextView
     private lateinit var bookButton: MaterialButton
 
-    private var barberId: Long = -1L
-    private var selectionMode = false
-
+    private var barberId: String = ""
     private var barberName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,19 +29,9 @@ class BarberDetails : AppCompatActivity() {
 
         setContentView(R.layout.activity_barber_details)
 
-        databaseHelper = DatabaseHelper(this)
+        firestore = FirebaseFirestore.getInstance()
 
-        barberId =
-            intent.getLongExtra(
-                "BARBER_ID",
-                -1L
-            )
-
-        selectionMode =
-            intent.getBooleanExtra(
-                "SELECTION_MODE",
-                false
-            )
+        barberId = intent.getStringExtra("BARBER_ID") ?: ""
 
         initializeViews()
         loadBarber()
@@ -51,126 +40,67 @@ class BarberDetails : AppCompatActivity() {
 
     private fun initializeViews() {
 
-        backButton =
-            findViewById(R.id.backButton)
-
-        barberNameText =
-            findViewById(R.id.barberName)
-
-        barberRoleText =
-            findViewById(R.id.barberRole)
-
-        barberDescriptionText =
-            findViewById(R.id.barberDescription)
-
-        barberRatingText =
-            findViewById(R.id.barberRating)
-
-        barberExperienceText =
-            findViewById(R.id.barberExperience)
-
-        bookButton =
-            findViewById(R.id.bookButton)
+        backButton = findViewById(R.id.backButton)
+        barberNameText = findViewById(R.id.barberName)
+        barberRoleText = findViewById(R.id.barberRole)
+        barberDescriptionText = findViewById(R.id.barberDescription)
+        barberRatingText = findViewById(R.id.barberRating)
+        barberExperienceText = findViewById(R.id.barberExperience)
+        bookButton = findViewById(R.id.bookButton)
     }
 
     private fun loadBarber() {
 
-        if (barberId <= 0) {
-
+        if (barberId.isEmpty()) {
             Toast.makeText(
                 this,
                 "Barber could not be found.",
                 Toast.LENGTH_LONG
             ).show()
-
             finish()
             return
         }
 
-        val cursor =
-            databaseHelper.getBarber(
-                barberId
-            )
+        firestore.collection("barbers")
+            .document(barberId)
+            .get()
+            .addOnSuccessListener { document ->
 
-        if (cursor == null) {
+                if (!document.exists()) {
+                    Toast.makeText(
+                        this,
+                        "Barber could not be found.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    finish()
+                    return@addOnSuccessListener
+                }
 
-            Toast.makeText(
-                this,
-                "Barber could not be found.",
-                Toast.LENGTH_LONG
-            ).show()
+                barberName = document.getString("name") ?: ""
+                val role = document.getString("role") ?: ""
 
-            finish()
-            return
-        }
+                // Not every barber document has this field yet -- defaults
+                // to blank instead of crashing if it's missing.
+                val description = document.getString("description") ?: ""
 
-        cursor.use {
+                val rating = document.getDouble("rating") ?: 0.0
+                val experience = document.getLong("experience")?.toInt() ?: 0
 
-            if (!it.moveToFirst()) {
+                barberNameText.text = barberName
+                barberRoleText.text = role
+                barberDescriptionText.text = description
 
+                barberRatingText.text = String.format("%.1f", rating)
+                barberExperienceText.text = "$experience years experience"
+            }
+            .addOnFailureListener { e ->
                 Toast.makeText(
                     this,
-                    "Barber could not be found.",
+                    "Barber could not be loaded: ${e.message}",
                     Toast.LENGTH_LONG
                 ).show()
-
                 finish()
-                return
             }
-
-            barberName =
-                it.getString(
-                    it.getColumnIndexOrThrow(
-                        "name"
-                    )
-                )
-
-            val role =
-                it.getString(
-                    it.getColumnIndexOrThrow(
-                        "role"
-                    )
-                )
-
-            val description =
-                it.getString(
-                    it.getColumnIndexOrThrow(
-                        "description"
-                    )
-                )
-
-            val rating =
-                it.getDouble(
-                    it.getColumnIndexOrThrow(
-                        "rating"
-                    )
-                )
-
-            val experience =
-                it.getInt(
-                    it.getColumnIndexOrThrow(
-                        "experience"
-                    )
-                )
-
-            barberNameText.text =
-                barberName
-
-            barberRoleText.text =
-                role
-
-            barberDescriptionText.text =
-                description
-
-            barberRatingText.text =
-                String.format(
-                    "%.1f",
-                    rating
-                )
-
-            barberExperienceText.text =
-                "$experience years experience"
-        }
     }
 
     private fun setupClickListeners() {
@@ -181,24 +111,12 @@ class BarberDetails : AppCompatActivity() {
 
         bookButton.setOnClickListener {
 
-            val resultIntent =
-                Intent()
+            val resultIntent = Intent()
 
-            resultIntent.putExtra(
-                "BARBER_ID",
-                barberId
-            )
+            resultIntent.putExtra("BARBER_ID", barberId)
+            resultIntent.putExtra("BARBER_NAME", barberName)
 
-            resultIntent.putExtra(
-                "BARBER_NAME",
-                barberName
-            )
-
-            setResult(
-                RESULT_OK,
-                resultIntent
-            )
-
+            setResult(RESULT_OK, resultIntent)
             finish()
         }
     }

@@ -9,14 +9,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
+import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class Booking : AppCompatActivity() {
 
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var firestore: FirebaseFirestore
     private lateinit var sessionManager: SessionManager
 
     private lateinit var backButton: ImageView
@@ -30,12 +30,12 @@ class Booking : AppCompatActivity() {
     private lateinit var selectedTimeText: TextView
     private lateinit var priceText: TextView
 
-    private lateinit var dateButton: MaterialButton
-    private lateinit var timeButton: MaterialButton
-    private lateinit var continueButton: MaterialButton
+    private lateinit var dateButton: com.google.android.material.button.MaterialButton
+    private lateinit var timeButton: com.google.android.material.button.MaterialButton
+    private lateinit var continueButton: com.google.android.material.button.MaterialButton
 
-    private var selectedServiceId: Long = -1L
-    private var selectedBarberId: Long = -1L
+    private var selectedServiceId: String = ""
+    private var selectedBarberId: String = ""
 
     private var selectedServiceName = ""
     private var selectedBarberName = ""
@@ -56,7 +56,7 @@ class Booking : AppCompatActivity() {
 
         setContentView(R.layout.activity_booking)
 
-        databaseHelper = DatabaseHelper(this)
+        firestore = FirebaseFirestore.getInstance()
         sessionManager = SessionManager(this)
 
         initializeViews()
@@ -70,29 +70,15 @@ class Booking : AppCompatActivity() {
         serviceSelection = findViewById(R.id.serviceSelection)
         barberSelection = findViewById(R.id.barberSelection)
 
-        selectedServiceText =
-            findViewById(R.id.selectedServiceText)
+        selectedServiceText = findViewById(R.id.selectedServiceText)
+        selectedBarberText = findViewById(R.id.selectedBarberText)
+        selectedDateText = findViewById(R.id.selectedDateText)
+        selectedTimeText = findViewById(R.id.selectedTimeText)
+        priceText = findViewById(R.id.priceText)
 
-        selectedBarberText =
-            findViewById(R.id.selectedBarberText)
-
-        selectedDateText =
-            findViewById(R.id.selectedDateText)
-
-        selectedTimeText =
-            findViewById(R.id.selectedTimeText)
-
-        priceText =
-            findViewById(R.id.priceText)
-
-        dateButton =
-            findViewById(R.id.dateButton)
-
-        timeButton =
-            findViewById(R.id.timeButton)
-
-        continueButton =
-            findViewById(R.id.continueButton)
+        dateButton = findViewById(R.id.dateButton)
+        timeButton = findViewById(R.id.timeButton)
+        continueButton = findViewById(R.id.continueButton)
     }
 
     private fun setupListeners() {
@@ -124,40 +110,18 @@ class Booking : AppCompatActivity() {
 
     private fun openServices() {
 
-        val intent =
-            Intent(
-                this,
-                Services::class.java
-            )
+        val intent = Intent(this, Services::class.java)
+        intent.putExtra("SELECTION_MODE", true)
 
-        intent.putExtra(
-            "SELECTION_MODE",
-            true
-        )
-
-        startActivityForResult(
-            intent,
-            SERVICE_REQUEST
-        )
+        startActivityForResult(intent, SERVICE_REQUEST)
     }
 
     private fun openBarbers() {
 
-        val intent =
-            Intent(
-                this,
-                Barbers::class.java
-            )
+        val intent = Intent(this, Barbers::class.java)
+        intent.putExtra("SELECTION_MODE", true)
 
-        intent.putExtra(
-            "SELECTION_MODE",
-            true
-        )
-
-        startActivityForResult(
-            intent,
-            BARBER_REQUEST
-        )
+        startActivityForResult(intent, BARBER_REQUEST)
     }
 
     @Deprecated("Deprecated in Java")
@@ -166,17 +130,9 @@ class Booking : AppCompatActivity() {
         resultCode: Int,
         data: Intent?
     ) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-        super.onActivityResult(
-            requestCode,
-            resultCode,
-            data
-        )
-
-        if (
-            resultCode != RESULT_OK ||
-            data == null
-        ) {
+        if (resultCode != RESULT_OK || data == null) {
             return
         }
 
@@ -184,340 +140,303 @@ class Booking : AppCompatActivity() {
 
             SERVICE_REQUEST -> {
 
-                selectedServiceId =
-                    data.getLongExtra(
-                        "SERVICE_ID",
-                        -1L
-                    )
+                selectedServiceId = data.getStringExtra("SERVICE_ID") ?: ""
+                selectedServiceName = data.getStringExtra("SERVICE_NAME") ?: ""
+                selectedServicePrice = data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
 
-                selectedServiceName =
-                    data.getStringExtra(
-                        "SERVICE_NAME"
-                    ) ?: ""
-
-                selectedServicePrice =
-                    data.getDoubleExtra(
-                        "SERVICE_PRICE_VALUE",
-                        0.0
-                    )
-
-                selectedServiceDuration =
-                    databaseHelper.getServiceDuration(
-                        selectedServiceId
-                    ) ?: 0
-
-                selectedServiceText.text =
-                    selectedServiceName
+                selectedServiceText.text = selectedServiceName
 
                 priceText.text =
-                    String.format(
-                        Locale.getDefault(),
-                        "R%.0f",
-                        selectedServicePrice
-                    )
+                    String.format(Locale.getDefault(), "R%.0f", selectedServicePrice)
 
                 selectedTime = ""
+                selectedTimeText.text = "Select time"
+                selectedServiceDuration = 0
 
-                selectedTimeText.text =
-                    "Select time"
+                if (selectedServiceId.isNotEmpty()) {
+                    firestore.collection("services")
+                        .document(selectedServiceId)
+                        .get()
+                        .addOnSuccessListener { document ->
+                            selectedServiceDuration =
+                                document.getLong("duration")?.toInt() ?: 0
+                        }
+                }
             }
 
             BARBER_REQUEST -> {
 
-                selectedBarberId =
-                    data.getLongExtra(
-                        "BARBER_ID",
-                        -1L
-                    )
+                selectedBarberId = data.getStringExtra("BARBER_ID") ?: ""
+                selectedBarberName = data.getStringExtra("BARBER_NAME") ?: ""
 
-                selectedBarberName =
-                    data.getStringExtra(
-                        "BARBER_NAME"
-                    ) ?: ""
-
-                selectedBarberText.text =
-                    selectedBarberName
+                selectedBarberText.text = selectedBarberName
 
                 selectedTime = ""
-
-                selectedTimeText.text =
-                    "Select time"
+                selectedTimeText.text = "Select time"
             }
         }
     }
 
     private fun chooseDate() {
 
-        val calendar =
-            Calendar.getInstance()
+        val calendar = Calendar.getInstance()
 
-        val datePicker =
-            DatePickerDialog(
-                this,
-                { _, year, month, day ->
+        val datePicker = DatePickerDialog(
+            this,
+            { _, year, month, day ->
 
-                    val chosenDate =
-                        Calendar.getInstance()
+                val chosenDate = Calendar.getInstance()
+                chosenDate.set(year, month, day)
 
-                    chosenDate.set(
-                        year,
-                        month,
-                        day
-                    )
+                val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-                    val formatter =
-                        SimpleDateFormat(
-                            "yyyy-MM-dd",
-                            Locale.getDefault()
-                        )
+                selectedDate = formatter.format(chosenDate.time)
+                selectedDateText.text = selectedDate
 
-                    selectedDate =
-                        formatter.format(
-                            chosenDate.time
-                        )
+                selectedTime = ""
+                selectedTimeText.text = "Select time"
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
 
-                    selectedDateText.text =
-                        selectedDate
-
-                    selectedTime = ""
-
-                    selectedTimeText.text =
-                        "Select time"
-                },
-                calendar.get(Calendar.YEAR),
-                calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH)
-            )
-
-        datePicker.datePicker.minDate =
-            System.currentTimeMillis()
-
+        datePicker.datePicker.minDate = System.currentTimeMillis()
         datePicker.show()
     }
 
     private fun chooseTime() {
 
-        if (selectedServiceId <= 0L) {
-
-            Toast.makeText(
-                this,
-                "Please select a service first.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (selectedServiceId.isEmpty()) {
+            Toast.makeText(this, "Please select a service first.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (selectedBarberId <= 0L) {
-
-            Toast.makeText(
-                this,
-                "Please select a barber first.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (selectedBarberId.isEmpty()) {
+            Toast.makeText(this, "Please select a barber first.", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (selectedDate.isEmpty()) {
-
-            Toast.makeText(
-                this,
-                "Please select a date first.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            Toast.makeText(this, "Please select a date first.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val duration =
-            databaseHelper.getServiceDuration(
-                selectedServiceId
-            ) ?: 0
-
-        if (duration <= 0) {
-
+        if (selectedServiceDuration <= 0) {
             Toast.makeText(
                 this,
-                "Service duration could not be found.",
+                "Service duration could not be found. Try reselecting the service.",
                 Toast.LENGTH_LONG
             ).show()
-
             return
         }
 
-        val availableTimes =
-            databaseHelper.getAvailableTimeSlots(
-                selectedBarberId,
-                selectedDate,
-                duration
-            )
+        timeButton.isEnabled = false
 
-        if (availableTimes.isEmpty()) {
+        firestore.collection("availability")
+            .whereEqualTo("barberId", selectedBarberId)
+            .whereEqualTo("date", selectedDate)
+            .whereEqualTo("availability", true)
+            .get()
+            .addOnSuccessListener { availabilitySnapshot ->
 
-            Toast.makeText(
-                this,
-                "No available times for this barber on $selectedDate.",
-                Toast.LENGTH_LONG
-            ).show()
+                if (availabilitySnapshot.isEmpty) {
+                    timeButton.isEnabled = true
+                    Toast.makeText(
+                        this,
+                        "No available times for this barber on $selectedDate.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    return@addOnSuccessListener
+                }
 
-            return
-        }
+                getTakenTimesForDay(selectedBarberId, selectedDate) { takenTimes ->
 
-        val timeArray =
-            availableTimes.toTypedArray()
+                    timeButton.isEnabled = true
 
-        AlertDialog.Builder(this)
-            .setTitle("Select Time")
-            .setItems(timeArray) { _, which ->
+                    val slots = mutableListOf<String>()
 
-                selectedTime =
-                    timeArray[which]
+                    for (doc in availabilitySnapshot.documents) {
 
-                selectedTimeText.text =
-                    selectedTime
+                        val startMinutes = doc.getLong("startTime")?.toInt() ?: continue
+                        val endMinutes = doc.getLong("endTime")?.toInt() ?: continue
+
+                        var currentMinutes = startMinutes
+
+                        while (currentMinutes + selectedServiceDuration <= endMinutes) {
+
+                            val timeString = minutesToTimeString(currentMinutes)
+
+                            if (timeString !in takenTimes) {
+                                slots.add(timeString)
+                            }
+
+                            currentMinutes += selectedServiceDuration
+                        }
+                    }
+
+                    if (slots.isEmpty()) {
+                        Toast.makeText(
+                            this,
+                            "No available times for this barber on $selectedDate.",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        return@getTakenTimesForDay
+                    }
+
+                    val timeArray = slots.toTypedArray()
+
+                    AlertDialog.Builder(this)
+                        .setTitle("Select Time")
+                        .setItems(timeArray) { _, which ->
+                            selectedTime = timeArray[which]
+                            selectedTimeText.text = selectedTime
+                        }
+                        .show()
+                }
             }
-            .show()
+            .addOnFailureListener { e ->
+                timeButton.isEnabled = true
+                Toast.makeText(
+                    this,
+                    "Could not load availability: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+    }
+
+    /**
+     * Fetches every non-cancelled booking for this barber on this date,
+     * and returns the set of times already taken.
+     */
+    private fun getTakenTimesForDay(
+        barberId: String,
+        date: String,
+        onResult: (Set<String>) -> Unit
+    ) {
+        firestore.collection("bookings")
+            .whereEqualTo("barberId", barberId)
+            .whereEqualTo("bookingDate", date)
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                val taken = snapshot.documents
+                    .filter { doc ->
+                        val status = doc.getString("status") ?: ""
+                        !status.equals("cancelled", ignoreCase = true)
+                    }
+                    .mapNotNull { it.getString("bookingTime") }
+                    .toSet()
+
+                onResult(taken)
+            }
+            .addOnFailureListener {
+                // If this fails, fail open for the listing -- the final
+                // check in continueToConfirmation() still protects against
+                // an actual double-booking.
+                onResult(emptySet())
+            }
+    }
+
+    /**
+     * One last check, right before confirming, that nobody else grabbed
+     * this exact slot while the user was looking at the screen.
+     */
+    private fun isSlotTaken(
+        barberId: String,
+        date: String,
+        time: String,
+        onResult: (Boolean) -> Unit
+    ) {
+        firestore.collection("bookings")
+            .whereEqualTo("barberId", barberId)
+            .whereEqualTo("bookingDate", date)
+            .whereEqualTo("bookingTime", time)
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                val taken = snapshot.documents.any { doc ->
+                    val status = doc.getString("status") ?: ""
+                    !status.equals("cancelled", ignoreCase = true)
+                }
+
+                onResult(taken)
+            }
+            .addOnFailureListener {
+                // If we can't verify, don't risk a double-booking.
+                onResult(true)
+            }
+    }
+
+    private fun minutesToTimeString(totalMinutes: Int): String {
+        val hours = totalMinutes / 60
+        val minutes = totalMinutes % 60
+        return String.format(Locale.getDefault(), "%02d:%02d", hours, minutes)
     }
 
     private fun continueToConfirmation() {
 
         if (!sessionManager.isLoggedIn()) {
-
-            Toast.makeText(
-                this,
-                "Please log in before booking.",
-                Toast.LENGTH_LONG
-            ).show()
-
-            startActivity(
-                Intent(
-                    this,
-                    Login::class.java
-                )
-            )
-
+            Toast.makeText(this, "Please log in before booking.", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, Login::class.java))
             return
         }
 
-        if (selectedServiceId <= 0L) {
-
-            Toast.makeText(
-                this,
-                "Please select a service.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (selectedServiceId.isEmpty()) {
+            Toast.makeText(this, "Please select a service.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        if (selectedBarberId <= 0L) {
-
-            Toast.makeText(
-                this,
-                "Please select a barber.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+        if (selectedBarberId.isEmpty()) {
+            Toast.makeText(this, "Please select a barber.", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (selectedDate.isEmpty()) {
-
-            Toast.makeText(
-                this,
-                "Please select a date.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            Toast.makeText(this, "Please select a date.", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (selectedTime.isEmpty()) {
-
-            Toast.makeText(
-                this,
-                "Please select a time.",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            Toast.makeText(this, "Please select a time.", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val stillAvailable =
-            databaseHelper.canBookService(
-                selectedServiceId,
-                selectedBarberId,
-                selectedDate,
-                selectedTime
+        continueButton.isEnabled = false
+
+        isSlotTaken(selectedBarberId, selectedDate, selectedTime) { taken ->
+
+            continueButton.isEnabled = true
+
+            if (taken) {
+                Toast.makeText(
+                    this,
+                    "That time is no longer available. Please select another time.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                selectedTime = ""
+                selectedTimeText.text = "Select time"
+                return@isSlotTaken
+            }
+
+            val intent = Intent(this, BookingConfirmation::class.java)
+
+            intent.putExtra("SERVICE_ID", selectedServiceId)
+            intent.putExtra("BARBER_ID", selectedBarberId)
+            intent.putExtra("SERVICE_NAME", selectedServiceName)
+            intent.putExtra("SERVICE_PRICE_VALUE", selectedServicePrice)
+
+            intent.putExtra(
+                "SERVICE_PRICE",
+                String.format(Locale.getDefault(), "R%.2f", selectedServicePrice)
             )
 
-        if (!stillAvailable) {
+            intent.putExtra("BARBER_NAME", selectedBarberName)
+            intent.putExtra("BOOKING_DATE", selectedDate)
+            intent.putExtra("BOOKING_TIME", selectedTime)
 
-            Toast.makeText(
-                this,
-                "That time is no longer available. Please select another time.",
-                Toast.LENGTH_LONG
-            ).show()
-
-            selectedTime = ""
-
-            selectedTimeText.text =
-                "Select time"
-
-            return
+            startActivity(intent)
         }
-
-        val intent =
-            Intent(
-                this,
-                BookingConfirmation::class.java
-            )
-
-        intent.putExtra(
-            "SERVICE_ID",
-            selectedServiceId
-        )
-
-        intent.putExtra(
-            "BARBER_ID",
-            selectedBarberId
-        )
-
-        intent.putExtra(
-            "SERVICE_NAME",
-            selectedServiceName
-        )
-
-        intent.putExtra(
-            "SERVICE_PRICE_VALUE",
-            selectedServicePrice
-        )
-
-        intent.putExtra(
-            "SERVICE_PRICE",
-            String.format(
-                Locale.getDefault(),
-                "R%.2f",
-                selectedServicePrice
-            )
-        )
-
-        intent.putExtra(
-            "BARBER_NAME",
-            selectedBarberName
-        )
-
-        intent.putExtra(
-            "BOOKING_DATE",
-            selectedDate
-        )
-
-        intent.putExtra(
-            "BOOKING_TIME",
-            selectedTime
-        )
-
-        startActivity(intent)
     }
 }
