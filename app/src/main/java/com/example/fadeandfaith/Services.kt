@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import com.google.firebase.firestore.FirebaseFirestore
 import androidx.appcompat.app.AppCompatActivity
 
 class Services : AppCompatActivity() {
@@ -20,6 +22,8 @@ class Services : AppCompatActivity() {
     private lateinit var navServices: LinearLayout
     private lateinit var navBooking: LinearLayout
     private lateinit var navProfile: LinearLayout
+
+    private lateinit var priceViews: Map<String, TextView>
 
     private var selectionMode = false
 
@@ -38,6 +42,32 @@ class Services : AppCompatActivity() {
         setupButtons()
     }
 
+    override fun onStart() {
+        super.onStart()
+        loadPrices()
+    }
+
+    // Reads the live price of each service, so a price change made by the
+    // boss shows up here as well as on Home and Service details.
+    private fun loadPrices() {
+
+        for ((serviceId, view) in priceViews) {
+
+            FirebaseFirestore.getInstance()
+                .collection("services")
+                .document(serviceId)
+                .get()
+                .addOnSuccessListener { document ->
+
+                    val price = document.getDouble("price") ?: return@addOnSuccessListener
+
+                    view.text =
+                        if (price % 1.0 == 0.0) "R${price.toInt()}"
+                        else String.format("R%.2f", price)
+                }
+        }
+    }
+
     private fun initializeViews() {
 
         backButton = findViewById(R.id.backButton)
@@ -46,6 +76,13 @@ class Services : AppCompatActivity() {
         shaveBookButton = findViewById(R.id.shaveBookButton)
         facialBookButton = findViewById(R.id.facialBookButton)
         premiumBookButton = findViewById(R.id.premiumBookButton)
+
+        priceViews = mapOf(
+            "haircut_beard" to findViewById<TextView>(R.id.haircutPrice),
+            "shave_haircut" to findViewById<TextView>(R.id.shavePrice),
+            "facial_shave" to findViewById<TextView>(R.id.facialPrice),
+            "premium_experience" to findViewById<TextView>(R.id.premiumPrice)
+        )
 
         navHome = findViewById(R.id.navHome)
         navServices = findViewById(R.id.navServices)
@@ -121,25 +158,32 @@ class Services : AppCompatActivity() {
             data != null
         ) {
 
-            val resultIntent = Intent()
+            val serviceId = data.getStringExtra("SERVICE_ID") ?: ""
+            val serviceName = data.getStringExtra("SERVICE_NAME") ?: ""
+            val servicePrice = data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
 
-            resultIntent.putExtra(
-                "SERVICE_ID",
-                data.getStringExtra("SERVICE_ID") ?: ""
-            )
+            if (selectionMode) {
 
-            resultIntent.putExtra(
-                "SERVICE_NAME",
-                data.getStringExtra("SERVICE_NAME") ?: ""
-            )
+                // Opened from the Booking screen: hand the choice back to it.
+                val resultIntent = Intent()
+                resultIntent.putExtra("SERVICE_ID", serviceId)
+                resultIntent.putExtra("SERVICE_NAME", serviceName)
+                resultIntent.putExtra("SERVICE_PRICE_VALUE", servicePrice)
 
-            resultIntent.putExtra(
-                "SERVICE_PRICE_VALUE",
-                data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
-            )
+                setResult(RESULT_OK, resultIntent)
+                finish()
 
-            setResult(RESULT_OK, resultIntent)
-            finish()
+            } else {
+
+                // Opened from Home or the menu: open Booking with the
+                // service already chosen.
+                val bookingIntent = Intent(this, Booking::class.java)
+                bookingIntent.putExtra("SERVICE_ID", serviceId)
+                bookingIntent.putExtra("SERVICE_NAME", serviceName)
+                bookingIntent.putExtra("SERVICE_PRICE_VALUE", servicePrice)
+
+                startActivity(bookingIntent)
+            }
         }
     }
 

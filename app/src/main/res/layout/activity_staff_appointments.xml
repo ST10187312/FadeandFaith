@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,17 +15,21 @@
         android:padding="16dp">
 
         <Button
+            android:background="@drawable/gold"
+            android:textColor="@color/ff_on_gold"
+            android:textStyle="bold"
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Appointments"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="22sp"
             android:textStyle="bold"
             android:gravity="center" />

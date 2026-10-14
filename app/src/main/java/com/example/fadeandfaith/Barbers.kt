@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Barbers : AppCompatActivity() {
 
@@ -32,6 +33,38 @@ class Barbers : AppCompatActivity() {
 
         initializeViews()
         setupButtons()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadPhotos()
+    }
+
+    // If a barber has uploaded their own photo, show it instead of the
+    // built-in placeholder.
+    private fun loadPhotos() {
+
+        val photos = mapOf(
+            "James" to findViewById<ImageView>(R.id.JAMES),
+            "Michael" to findViewById<ImageView>(R.id.michael),
+            "David" to findViewById<ImageView>(R.id.david)
+        )
+
+        for ((barberId, imageView) in photos) {
+
+            FirebaseFirestore.getInstance()
+                .collection("barbers")
+                .document(barberId)
+                .get()
+                .addOnSuccessListener { document ->
+
+                    val bitmap = ImageStore.base64ToBitmap(document.getString("photoBase64"))
+
+                    if (bitmap != null) {
+                        imageView.setImageBitmap(bitmap)
+                    }
+                }
+        }
     }
 
     private fun initializeViews() {
@@ -112,20 +145,29 @@ class Barbers : AppCompatActivity() {
             data != null
         ) {
 
-            val resultIntent = Intent()
+            val barberId = data.getStringExtra("BARBER_ID") ?: ""
+            val barberName = data.getStringExtra("BARBER_NAME") ?: ""
 
-            resultIntent.putExtra(
-                "BARBER_ID",
-                data.getStringExtra("BARBER_ID") ?: ""
-            )
+            if (selectionMode) {
 
-            resultIntent.putExtra(
-                "BARBER_NAME",
-                data.getStringExtra("BARBER_NAME") ?: ""
-            )
+                // Opened from the Booking screen: hand the choice back to it.
+                val resultIntent = Intent()
+                resultIntent.putExtra("BARBER_ID", barberId)
+                resultIntent.putExtra("BARBER_NAME", barberName)
 
-            setResult(RESULT_OK, resultIntent)
-            finish()
+                setResult(RESULT_OK, resultIntent)
+                finish()
+
+            } else {
+
+                // Opened from Home or the menu: open Booking with the
+                // barber already chosen.
+                val bookingIntent = Intent(this, Booking::class.java)
+                bookingIntent.putExtra("BARBER_ID", barberId)
+                bookingIntent.putExtra("BARBER_NAME", barberName)
+
+                startActivity(bookingIntent)
+            }
         }
     }
 

@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.functions)
+    implementation("com.google.zxing:core:3.5.3")
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)

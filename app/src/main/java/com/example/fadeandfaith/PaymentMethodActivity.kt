@@ -1,6 +1,7 @@
 package com.example.fadeandfaith
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -8,6 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
+/**
+ * Customers choose how they will pay when they arrive. Payment happens at
+ * the barbershop, so the choice is saved and attached to each booking.
+ */
 class PaymentMethodActivity : AppCompatActivity() {
 
     private lateinit var backButton: ImageView
@@ -27,7 +32,10 @@ class PaymentMethodActivity : AppCompatActivity() {
 
     private lateinit var savedCardText: TextView
 
-    private var selectedPaymentMethod = "Cash"
+    private val cashLabel = "Cash at the barbershop"
+    private val cardLabel = "Card at the barbershop"
+
+    private var selectedPaymentMethod = "Cash at the barbershop"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +43,10 @@ class PaymentMethodActivity : AppCompatActivity() {
         setContentView(R.layout.activity_payment_method)
 
         initializeViews()
+
+        selectedPaymentMethod = getSharedPreferences("ff_prefs", MODE_PRIVATE)
+            .getString("payment_method", cashLabel) ?: cashLabel
+
         setupPaymentOptions()
         setupClickListeners()
     }
@@ -57,26 +69,26 @@ class PaymentMethodActivity : AppCompatActivity() {
         saveButton = findViewById(R.id.saveButton)
 
         savedCardText = findViewById(R.id.savedCardText)
+
+        // Cards are paid at the shop, so there is nothing to add here, and
+        // online wallets are not offered yet.
+        addCardButton.visibility = View.GONE
+        googlePayOption.visibility = View.GONE
+        applePayOption.visibility = View.GONE
+
+        savedCardText.text = "Pay by card when you arrive"
     }
 
     private fun setupPaymentOptions() {
 
-        selectPaymentMethod("Cash")
+        selectPaymentMethod(selectedPaymentMethod)
 
         cardOption.setOnClickListener {
-            selectPaymentMethod("Card")
-        }
-
-        googlePayOption.setOnClickListener {
-            selectPaymentMethod("Google Pay")
-        }
-
-        applePayOption.setOnClickListener {
-            selectPaymentMethod("Apple Pay")
+            selectPaymentMethod(cardLabel)
         }
 
         cashOption.setOnClickListener {
-            selectPaymentMethod("Cash")
+            selectPaymentMethod(cashLabel)
         }
     }
 
@@ -84,17 +96,10 @@ class PaymentMethodActivity : AppCompatActivity() {
 
         selectedPaymentMethod = method
 
-        cardIndicator.alpha =
-            if (method == "Card") 1f else 0.25f
-
-        googlePayIndicator.alpha =
-            if (method == "Google Pay") 1f else 0.25f
-
-        applePayIndicator.alpha =
-            if (method == "Apple Pay") 1f else 0.25f
-
-        cashIndicator.alpha =
-            if (method == "Cash") 1f else 0.25f
+        cardIndicator.alpha = if (method == cardLabel) 1f else 0.25f
+        cashIndicator.alpha = if (method == cashLabel) 1f else 0.25f
+        googlePayIndicator.alpha = 0.25f
+        applePayIndicator.alpha = 0.25f
     }
 
     private fun setupClickListeners() {
@@ -103,16 +108,12 @@ class PaymentMethodActivity : AppCompatActivity() {
             finish()
         }
 
-        addCardButton.setOnClickListener {
-
-            Toast.makeText(
-                this,
-                "Card setup will be connected to the payment service.",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
         saveButton.setOnClickListener {
+
+            getSharedPreferences("ff_prefs", MODE_PRIVATE)
+                .edit()
+                .putString("payment_method", selectedPaymentMethod)
+                .apply()
 
             Toast.makeText(
                 this,

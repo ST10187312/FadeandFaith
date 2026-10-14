@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
 
 
@@ -37,20 +37,20 @@
             android:id="@+id/onboardingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your Style."
+            android:text="@string/onboarding_headline"
             android:textColor="#FFFFFF"
             android:textSize="32sp"
             android:textStyle="bold"
             android:gravity="center"
             android:letterSpacing="0.03"
-            android:fontFamily="sans"
+            android:fontFamily="serif"
             android:layout_marginBottom="14dp" />
 
         <TextView
             android:id="@+id/onboardingDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Experience premium barbering designed around your style."
+            android:text="@string/onboarding_subtext"
             android:textColor="#999999"
             android:textSize="15sp"
             android:gravity="center"
@@ -70,14 +70,14 @@
                 android:id="@+id/indicator1"
                 android:layout_width="25dp"
                 android:layout_height="3dp"
-                android:background="#D4AF37"
+                android:background="#E8C45E"
                 android:layout_marginEnd="6dp" />
 
             <View
                 android:id="@+id/indicator2"
                 android:layout_width="25dp"
                 android:layout_height="3dp"
-                android:background="#D4AF37"
+                android:background="#E8C45E"
                 android:alpha="0.3"
                 android:layout_marginEnd="6dp" />
 
@@ -85,7 +85,7 @@
                 android:id="@+id/indicator3"
                 android:layout_width="25dp"
                 android:layout_height="3dp"
-                android:background="#D4AF37"
+                android:background="#E8C45E"
                 android:alpha="0.3" />
 
         </LinearLayout>
@@ -96,12 +96,12 @@
             android:id="@+id/nextButton"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:text="NEXT"
-            android:textColor="#050505"
+            android:text="@string/action_next"
+            android:textColor="@color/ff_on_gold"
             android:textSize="14sp"
             android:textStyle="bold"
             android:letterSpacing="0.08"
-            android:background="@drawable/goldbutton"
+            android:background="@drawable/gold"
             android:elevation="4dp" />
 
         <!-- Skip -->
@@ -110,7 +110,7 @@
             android:id="@+id/skipButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SKIP"
+            android:text="@string/action_skip"
             android:textColor="#8A8A8A"
             android:textSize="12sp"
             android:textStyle="bold"

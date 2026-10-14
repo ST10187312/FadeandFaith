@@ -64,4 +64,13 @@ class SessionManager(context: Context) {
         // Defaults to true since that's been the app's only look until now.
         return preferences.getBoolean("dark_mode_enabled", true)
     }
+    fun setLanguage(languageCode: String) {
+        preferences.edit()
+            .putString("language_code", languageCode)
+            .apply()
+    }
+
+    fun getLanguage(): String {
+        return preferences.getString("language_code", "en") ?: "en"
+    }
 }

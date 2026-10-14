@@ -4,142 +4,196 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#050505">
+    android:background="#050505"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="28dp">
+        android:paddingBottom="32dp">
 
-        <Space
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp" />
+            android:layout_height="300dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="F&amp;F"
-            android:textColor="#D4AF37"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            <!-- To use a photo: add hero_auth.jpg to the drawable folder and
+                 change @drawable/hero_gradient to @drawable/hero_auth -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/herogradient"
+                android:contentDescription="@null" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="WELCOME BACK"
-            android:textColor="#FFFFFF"
-            android:textSize="27sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/fadebottom" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Sign in to continue your experience."
-            android:textColor="#888888"
-            android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        <Space
+                <TextView
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    android:background="@drawable/splashlogo"
+                    android:gravity="center"
+                    android:text="@string/brand_initials"
+                    android:textColor="#E8C45E"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="serif"
+                    android:text="FADE &amp; FAITH"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.06" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="FAITH IN OUR BARBER"
+                    android:textColor="#E8C45E"
+                    android:textSize="13sp"
+                    android:letterSpacing="0.12" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp" />
-
-        <EditText
-            android:id="@+id/emailInput"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:hint="Email address"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#777777"
-            android:inputType="textEmailAddress"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:background="@drawable/input" />
-
-        <EditText
-            android:id="@+id/passwordInput"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginTop="14dp"
-            android:hint="Password"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#777777"
-            android:inputType="textPassword"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
-            android:background="@drawable/input" />
-
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="14dp"
-            android:text="Forgot password?"
-            android:textColor="#D4AF37"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:paddingStart="28dp"
+            android:paddingEnd="28dp">
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginTop="28dp"
-            android:text="SIGN IN"
-            android:textColor="#050505"
-            android:textStyle="bold"
-            android:letterSpacing="0.08"
-            android:background="@drawable/goldbutton" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Email"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Don't have an account?"
-            android:textColor="#777777"
-            android:textSize="13sp" />
+            <EditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputgold"
+                android:hint="Email address"
+                android:inputType="textEmailAddress"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColor="#050505"
+                android:textColorHint="#7A6422"
+                android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="CREATE ACCOUNT"
-            android:textColor="#D4AF37"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Password"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputgold"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:textColor="#050505"
+                android:textColorHint="#7A6422"
+                android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/forgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Forgot password?"
+                android:textColor="#E8C45E"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="STAFF MEMBER?"
-            android:textColor="#777777"
-            android:textSize="13sp" />
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/gold"
+                android:gravity="center"
+                android:stateListAnimator="@null"
+                android:text="SIGN IN"
+                android:textColor="#050505"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
 
-        <TextView
-            android:id="@+id/staffLoginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="STAFF LOGIN"
-            android:textColor="#D4AF37"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08"
-            android:clickable="true"
-            android:focusable="true" />
+            <TextView
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/outline"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="CREATE ACCOUNT"
+                android:textColor="#E8C45E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:text="STAFF MEMBER?"
+                android:textColor="#6F6F6F"
+                android:textSize="12sp"
+                android:letterSpacing="0.1" />
+
+            <TextView
+                android:id="@+id/staffLoginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="6dp"
+                android:text="STAFF LOGIN"
+                android:textColor="#E8C45E"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

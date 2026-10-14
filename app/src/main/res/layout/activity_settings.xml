@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="APP PREFERENCES"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.14" />
@@ -91,7 +91,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="10dp"
             android:text="APPEARANCE"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.12" />
@@ -105,7 +105,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -118,7 +118,7 @@
                 android:src="@drawable/person"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Dark mode"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -149,7 +149,7 @@
                 android:id="@+id/darkModeSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#D4AF37"
+                android:buttonTint="#E8C45E"
                 android:contentDescription="Dark mode switch" />
 
         </LinearLayout>
@@ -165,7 +165,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="10dp"
             android:text="NOTIFICATIONS"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.12" />
@@ -177,7 +177,7 @@
             android:layout_height="72dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -192,7 +192,7 @@
                 android:src="@drawable/notifications"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Notifications"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -237,7 +237,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -250,7 +250,7 @@
                 android:layout_height="42dp"
                 android:gravity="center"
                 android:text="A"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="19sp"
                 android:textStyle="bold"
                 android:background="@drawable/iconbutton" />
@@ -284,7 +284,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -300,7 +302,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="10dp"
             android:text="INFORMATION"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.12" />
@@ -315,7 +317,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -328,7 +330,7 @@
                 android:layout_height="42dp"
                 android:gravity="center"
                 android:text="i"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:background="@drawable/iconbutton" />
@@ -347,7 +349,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -362,7 +366,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -375,7 +379,7 @@
                 android:layout_height="42dp"
                 android:gravity="center"
                 android:text="P"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:background="@drawable/iconbutton" />
@@ -394,7 +398,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -409,7 +415,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -422,7 +428,7 @@
                 android:layout_height="42dp"
                 android:gravity="center"
                 android:text="T"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:background="@drawable/iconbutton" />
@@ -441,7 +447,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -557,14 +565,14 @@
                     android:layout_height="25dp"
                     android:src="@drawable/person"
                     android:contentDescription="Profile"
-                    app:tint="#D4AF37" />
+                    app:tint="#E8C45E" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="PROFILE"
-                    android:textColor="#D4AF37"
+                    android:textColor="#E8C45E"
                     android:textSize="9sp"
                     android:textStyle="bold" />
 

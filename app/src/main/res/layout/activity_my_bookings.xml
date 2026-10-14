@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
     <!-- TOP BAR -->
 
@@ -32,8 +32,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="MY BOOKINGS"
-            android:textColor="#FFFFFF"
+            android:fontFamily="serif"
+            android:text="@string/my_bookings_title"
+            android:textColor="#E8C45E"
             android:textSize="18sp"
             android:textStyle="bold"
             android:letterSpacing="0.08" />
@@ -61,7 +62,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Appointments"
+                android:fontFamily="serif"
+                android:text="@string/my_bookings_heading"
                 android:textColor="#FFFFFF"
                 android:textSize="27sp"
                 android:textStyle="bold" />
@@ -70,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="Manage your barber appointments in one place."
+                android:text="@string/my_bookings_subtitle"
                 android:textColor="#888888"
                 android:textSize="14sp" />
 
@@ -82,7 +84,7 @@
                 android:layout_marginTop="28dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="@drawable/homecard"
+                android:background="@drawable/cardoutline"
                 android:padding="5dp">
 
                 <TextView
@@ -91,8 +93,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="UPCOMING"
-                    android:textColor="#D4AF37"
+                    android:text="@string/tab_upcoming"
+                    android:textColor="#E8C45E"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.08" />
@@ -103,7 +105,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="COMPLETED"
+                    android:text="@string/tab_completed"
                     android:textColor="#FFFFFF"
                     android:textSize="11sp"
                     android:textStyle="bold"
@@ -116,7 +118,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="CANCELLED"
+                    android:text="@string/tab_cancelled"
                     android:textColor="#FFFFFF"
                     android:textSize="11sp"
                     android:textStyle="bold"
@@ -139,15 +141,15 @@
                     android:layout_marginTop="22dp"
                     android:orientation="vertical"
                     android:padding="20dp"
-                    android:background="@drawable/homecard">
+                    android:background="@drawable/cardoutline">
 
                     <!-- STATUS -->
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="UPCOMING APPOINTMENT"
-                        android:textColor="#D4AF37"
+                        android:text="@string/label_upcoming_appointment"
+                        android:textColor="#E8C45E"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.12" />
@@ -156,6 +158,7 @@
 
                     <TextView
                         android:id="@+id/serviceText"
+                        android:fontFamily="serif"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
@@ -187,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
-                        android:text="DATE"
+                        android:text="@string/label_date"
                         android:textColor="#777777"
                         android:textSize="10sp"
                         android:textStyle="bold"
@@ -208,7 +211,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="TIME"
+                        android:text="@string/label_time"
                         android:textColor="#777777"
                         android:textSize="10sp"
                         android:textStyle="bold"
@@ -235,7 +238,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="TOTAL"
+                            android:text="@string/label_total"
                             android:textColor="#777777"
                             android:textSize="10sp"
                             android:textStyle="bold"
@@ -246,7 +249,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="R180"
-                            android:textColor="#D4AF37"
+                            android:textColor="#E8C45E"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -259,12 +262,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
                         android:layout_marginTop="22dp"
-                        android:text="VIEW E-RECEIPT"
-                        android:textColor="#050505"
+                        android:text="@string/action_view_receipt"
+                        android:textColor="@color/ff_on_gold"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.06"
-                        android:background="@drawable/goldbutton"
+                        android:background="@drawable/gold"
                         app:backgroundTint="@null" />
 
                     <TextView
@@ -274,7 +277,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="13dp"
                         android:padding="10dp"
-                        android:text="CANCEL APPOINTMENT"
+                        android:text="@string/action_cancel_appointment"
                         android:textColor="#B85C5C"
                         android:textSize="11sp"
                         android:textStyle="bold"
@@ -300,12 +303,12 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:padding="35dp"
-                    android:background="@drawable/homecard">
+                    android:background="@drawable/cardoutline">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="NO COMPLETED BOOKINGS"
+                        android:text="@string/empty_no_completed"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -315,7 +318,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Your completed appointments will appear here."
+                        android:text="@string/empty_no_completed_desc"
                         android:textColor="#777777"
                         android:textSize="13sp"
                         android:gravity="center" />
@@ -340,12 +343,12 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:padding="35dp"
-                    android:background="@drawable/homecard">
+                    android:background="@drawable/cardoutline">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="APPOINTMENT CANCELLED"
+                        android:text="@string/empty_appointment_cancelled"
                         android:textColor="#B85C5C"
                         android:textSize="14sp"
                         android:textStyle="bold"
@@ -355,7 +358,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Your cancelled appointment will appear here."
+                        android:text="@string/empty_cancelled_desc"
                         android:textColor="#777777"
                         android:textSize="13sp"
                         android:gravity="center" />
@@ -379,8 +382,7 @@
         android:layout_height="72dp"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="#0A0A0A"
-        android:elevation="8dp">
+        android:background="#0B0B0B">
 
         <LinearLayout
             android:id="@+id/navHome"
@@ -396,13 +398,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/home"
-                android:contentDescription="Home" />
+                android:contentDescription="Home"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="HOME"
+                android:text="@string/nav_home"
                 android:textColor="#777777"
                 android:textSize="9sp"
                 android:textStyle="bold" />
@@ -423,13 +426,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/scissors"
-                android:contentDescription="Services" />
+                android:contentDescription="Services"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="SERVICES"
+                android:text="@string/nav_services"
                 android:textColor="#777777"
                 android:textSize="9sp"
                 android:textStyle="bold" />
@@ -450,14 +454,15 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/calendar"
-                android:contentDescription="Bookings" />
+                android:contentDescription="Bookings"
+                app:tint="#E8C45E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="BOOKINGS"
-                android:textColor="#D4AF37"
+                android:text="@string/nav_bookings"
+                android:textColor="#E8C45E"
                 android:textSize="9sp"
                 android:textStyle="bold" />
 
@@ -477,13 +482,14 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:src="@drawable/person"
-                android:contentDescription="Profile" />
+                android:contentDescription="Profile"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="PROFILE"
+                android:text="@string/nav_profile"
                 android:textColor="#777777"
                 android:textSize="9sp"
                 android:textStyle="bold" />

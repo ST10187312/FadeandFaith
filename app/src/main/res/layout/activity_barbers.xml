@@ -2,247 +2,304 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#050505">
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
-
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:padding="10dp"
-            android:src="@drawable/arrowback"
-            android:contentDescription="Back"
-            android:background="@drawable/iconbutton" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingEnd="42dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="OUR BARBERS"
-                android:textColor="#FFFFFF"
-                android:textSize="19sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.08" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="Meet the professionals."
-                android:textColor="#777777"
-                android:textSize="11sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
+    android:background="#050505"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
-
-
-
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="30dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:background="@drawable/homecard">
+                android:layout_height="56dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:src="@drawable/james"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="James the barber" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:text="JAMES"
-                    android:textColor="#D4AF37"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Senior Barber"
-                    android:textColor="#FFFFFF"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Specialist in fades, precision cuts and modern styling."
-                    android:textColor="#888888"
-                    android:textSize="13sp" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/jamesBookButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="18dp"
-                    android:text="VIEW PROFILE"
-                    android:textColor="#050505"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.08"
-                    android:background="@drawable/goldbutton" />
+                    android:id="@+id/backButton"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/iconbutton"
+                    android:contentDescription="Back"
+                    android:padding="11dp"
+                    android:src="@drawable/arrowback" />
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:letterSpacing="0.06"
+                android:text="OUR BARBERS"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
+            <View
+                android:layout_width="56dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:background="#E8C45E" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Meet the craftsmen."
+                android:textColor="#9A9A9A"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:background="@drawable/homecard">
+                android:background="@drawable/cardoutline"
+                android:orientation="vertical">
 
-                <ImageView
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:src="@drawable/michael"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="Michael the barber" />
+                    android:layout_height="200dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:text="MICHAEL"
-                    android:textColor="#D4AF37"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15" />
+                    <ImageView
+                        android:id="@+id/JAMES"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="James"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/james" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Master Barber"
-                    android:textColor="#FFFFFF"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/fadebottom" />
 
-                <TextView
+                </FrameLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Known for classic cuts, beard work and detailed finishes."
-                    android:textColor="#888888"
-                    android:textSize="13sp" />
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/michaelBookButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="18dp"
-                    android:text="VIEW PROFILE"
-                    android:textColor="#050505"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.08"
-                    android:background="@drawable/goldbutton" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.06"
+                        android:text="JAMES"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/barber_role_senior"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/barber_desc_james"
+                        android:textColor="#9A9A9A"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/jamesBookButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/outline"
+                        android:letterSpacing="0.1"
+                        android:text="@string/action_view_profile"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null" />
+
+                </LinearLayout>
 
             </LinearLayout>
-
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:background="@drawable/homecard">
+                android:background="@drawable/cardoutline"
+                android:orientation="vertical">
 
-                <ImageView
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:src="@drawable/david"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="David the barber" />
+                    android:layout_height="200dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp"
-                    android:text="DAVID"
-                    android:textColor="#D4AF37"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15" />
+                    <ImageView
+                        android:id="@+id/michael"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="Michael"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/michael" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Style Specialist"
-                    android:textColor="#FFFFFF"
-                    android:textSize="21sp"
-                    android:textStyle="bold" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/fadebottom" />
 
-                <TextView
+                </FrameLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Expert in contemporary styles, tapers and creative looks."
-                    android:textColor="#888888"
-                    android:textSize="13sp" />
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/davidBookButton"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.06"
+                        android:text="MICHAEL"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/barber_role_master"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/barber_desc_michael"
+                        android:textColor="#9A9A9A"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/michaelBookButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/outline"
+                        android:letterSpacing="0.1"
+                        android:text="@string/action_view_profile"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/cardoutline"
+                android:orientation="vertical">
+
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="18dp"
-                    android:text="VIEW PROFILE"
-                    android:textColor="#050505"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.08"
-                    android:background="@drawable/goldbutton" />
+                    android:layout_height="200dp">
+
+                    <ImageView
+                        android:id="@+id/david"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="David"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/david" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/fadebottom" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.06"
+                        android:text="DAVID"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/barber_role_style_specialist"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/barber_desc_david"
+                        android:textColor="#9A9A9A"
+                        android:textSize="13sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/davidBookButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/outline"
+                        android:letterSpacing="0.1"
+                        android:text="@string/action_view_profile"
+                        android:textColor="#E8C45E"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -250,120 +307,128 @@
 
     </ScrollView>
 
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:orientation="horizontal"
+        android:background="#0B0B0B"
         android:gravity="center"
-        android:background="#0A0A0A">
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:src="@drawable/addhome"
-                android:contentDescription="Home" />
+                android:contentDescription="Home"
+                android:src="@drawable/home"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="HOME"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/navServices"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:contentDescription="Services"
                 android:src="@drawable/scissors"
-                android:contentDescription="Services" />
+                app:tint="#E8C45E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="SERVICES"
-                android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textColor="#E8C45E"
+                android:textSize="9sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/navBooking"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:contentDescription="Book"
                 android:src="@drawable/calendar"
-                android:contentDescription="Booking" />
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="BOOK"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/navProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:contentDescription="Profile"
                 android:src="@drawable/person"
-                android:contentDescription="Profile" />
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="PROFILE"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 

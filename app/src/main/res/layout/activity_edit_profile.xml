@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -40,6 +40,7 @@
                 android:gravity="center"
                 android:text="EDIT PROFILE"
                 android:textColor="#FFFFFF"
+                android:fontFamily="serif"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08" />
@@ -71,14 +72,14 @@
                 android:src="@drawable/person"
                 android:background="@drawable/avatar"
                 android:contentDescription="Profile picture"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="PERSONAL INFORMATION"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.15" />
@@ -103,7 +104,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:text="FULL NAME"
-            android:textColor="#AAAAAA"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.1" />
@@ -116,12 +117,12 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="17dp"
-            android:background="@drawable/input"
+            android:background="@drawable/inputgold"
             android:hint="Enter your full name"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#666666"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:textSize="14sp"
             android:inputType="textPersonName" />
 
@@ -134,7 +135,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:text="EMAIL ADDRESS"
-            android:textColor="#AAAAAA"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.1" />
@@ -147,12 +148,12 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="17dp"
-            android:background="@drawable/input"
+            android:background="@drawable/inputgold"
             android:hint="Enter your email"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#666666"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:textSize="14sp"
             android:inputType="textEmailAddress" />
 
@@ -165,7 +166,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:text="PHONE NUMBER"
-            android:textColor="#AAAAAA"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.1" />
@@ -178,12 +179,12 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="17dp"
-            android:background="@drawable/input"
+            android:background="@drawable/inputgold"
             android:hint="+27 00 000 0000"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#666666"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:textSize="14sp"
             android:inputType="phone" />
 
@@ -196,7 +197,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:text="LOCATION"
-            android:textColor="#AAAAAA"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.1" />
@@ -209,12 +210,12 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="28dp"
-            android:background="@drawable/input"
+            android:background="@drawable/inputgold"
             android:hint="City, Province"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#666666"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:textSize="14sp"
             android:inputType="textPostalAddress" />
 
@@ -228,11 +229,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:text="SAVE CHANGES"
-            android:textColor="#050505"
+            android:textColor="@color/ff_on_gold"
             android:textSize="13sp"
             android:textStyle="bold"
             android:letterSpacing="0.08"
-            android:background="@drawable/goldbutton"
+            android:background="@drawable/gold"
             app:backgroundTint="@null" />
 
     </LinearLayout>

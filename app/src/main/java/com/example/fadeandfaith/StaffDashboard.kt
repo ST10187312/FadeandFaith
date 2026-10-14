@@ -9,6 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,17 +28,21 @@ class StaffDashboard : AppCompatActivity() {
     private lateinit var availabilityButton: LinearLayout
     private lateinit var pricesButton: LinearLayout
     private lateinit var settingsButton: LinearLayout
+    private lateinit var staffProfileButton: LinearLayout
+    private lateinit var hairstylesButton: LinearLayout
+    private lateinit var staffManageButton: LinearLayout
     private lateinit var logoutButton: LinearLayout
 
     private var notificationListener: ListenerRegistration? = null
     private var isFirstSnapshot = true
 
+    private val notificationPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_staff_dasboard)
-
-        requestNotificationPermissionIfNeeded()
 
         firestore = FirebaseFirestore.getInstance()
         sessionManager = SessionManager(this)
@@ -45,6 +50,8 @@ class StaffDashboard : AppCompatActivity() {
         initializeViews()
         loadDashboard()
         setupButtons()
+
+        requestNotificationPermissionIfNeeded()
     }
 
     override fun onStart() {
@@ -131,9 +138,8 @@ class StaffDashboard : AppCompatActivity() {
             if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
                 != PackageManager.PERMISSION_GRANTED
             ) {
-                requestPermissions(
-                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                    1001
+                notificationPermissionLauncher.launch(
+                    Manifest.permission.POST_NOTIFICATIONS
                 )
             }
         }
@@ -148,6 +154,14 @@ class StaffDashboard : AppCompatActivity() {
         availabilityButton = findViewById(R.id.availabilityButton)
         pricesButton = findViewById(R.id.pricesButton)
         settingsButton = findViewById(R.id.settingsButton)
+        staffProfileButton = findViewById(R.id.staffProfileButton)
+        hairstylesButton = findViewById(R.id.hairstylesButton)
+        staffManageButton = findViewById(R.id.staffManageButton)
+
+        // Only the boss sees the staff management button.
+        if (sessionManager.isBoss()) {
+            staffManageButton.visibility = android.view.View.VISIBLE
+        }
         logoutButton = findViewById(R.id.logoutButton)
     }
 
@@ -209,6 +223,18 @@ class StaffDashboard : AppCompatActivity() {
 
         pricesButton.setOnClickListener {
             startActivity(Intent(this, StaffPrices::class.java))
+        }
+
+        staffProfileButton.setOnClickListener {
+            startActivity(Intent(this, StaffProfile::class.java))
+        }
+
+        hairstylesButton.setOnClickListener {
+            startActivity(Intent(this, StaffHairstyles::class.java))
+        }
+
+        staffManageButton.setOnClickListener {
+            startActivity(Intent(this, StaffManagement::class.java))
         }
 
         settingsButton.setOnClickListener {

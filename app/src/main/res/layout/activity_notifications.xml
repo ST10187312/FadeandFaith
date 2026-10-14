@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -32,6 +32,7 @@
                 android:background="@drawable/iconbutton" />
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -49,6 +50,7 @@
         </LinearLayout>
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Stay Updated"
@@ -75,7 +77,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="18dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"
@@ -131,7 +133,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="18dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"
@@ -187,7 +189,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="18dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:clickable="true"
             android:focusable="true"

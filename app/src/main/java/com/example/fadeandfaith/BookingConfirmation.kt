@@ -161,6 +161,8 @@ class BookingConfirmation : AppCompatActivity() {
                             "bookingDate" to bookingDate,
                             "bookingTime" to bookingTime,
                             "price" to servicePrice,
+                            "paymentMethod" to getSharedPreferences("ff_prefs", MODE_PRIVATE)
+                                .getString("payment_method", "Cash at the barbershop"),
                             "status" to "pending",
                             "createdAt" to FieldValue.serverTimestamp()
                         )

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,17 +13,21 @@
         android:padding="24dp">
 
         <Button
+            android:background="@drawable/gold"
+            android:textColor="@color/ff_on_gold"
+            android:textStyle="bold"
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Manage Availability"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -36,33 +40,42 @@
             android:textSize="14sp" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/dateInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="25dp"
             android:hint="Date (YYYY-MM-DD)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="date" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/startTimeInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
             android:hint="Start time (HH:MM)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="time" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/endTimeInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
             android:hint="End time (HH:MM)"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="time" />
 
         <Switch
@@ -75,6 +88,9 @@
             android:checked="true" />
 
         <Button
+            android:background="@drawable/gold"
+            android:textColor="@color/ff_on_gold"
+            android:textStyle="bold"
             android:id="@+id/saveAvailabilityButton"
             android:layout_width="match_parent"
             android:layout_height="55dp"

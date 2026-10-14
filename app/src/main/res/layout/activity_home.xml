@@ -5,10 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#050505">
-
-
+    android:background="#050505"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,8 +24,6 @@
             android:paddingTop="22dp"
             android:paddingBottom="30dp">
 
-
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp">
@@ -35,25 +31,26 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.06"
                         android:text="FADE &amp; FAITH"
-                        android:textColor="#D4AF37"
-                        android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.08" />
+                        android:textColor="#E8C45E"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PREMIUM BARBERING"
+                        android:letterSpacing="0.18"
+                        android:text="FAITH IN OUR BARBER"
                         android:textColor="#666666"
-                        android:textSize="8sp"
-                        android:letterSpacing="0.18" />
+                        android:textSize="8sp" />
 
                 </LinearLayout>
 
@@ -68,109 +65,130 @@
                         android:id="@+id/notificationButton"
                         android:layout_width="44dp"
                         android:layout_height="44dp"
-                        android:padding="11dp"
-                        android:src="@drawable/notifications"
+                        android:background="@drawable/iconbutton"
                         android:contentDescription="Notifications"
-                        android:background="@drawable/iconbutton" />
+                        android:padding="11dp"
+                        android:src="@drawable/notifications" />
 
                     <ImageView
                         android:id="@+id/profileButton"
                         android:layout_width="44dp"
                         android:layout_height="44dp"
                         android:layout_marginStart="10dp"
-                        android:padding="10dp"
-                        android:src="@drawable/person"
+                        android:background="@drawable/iconbutton"
                         android:contentDescription="Profile"
-                        android:background="@drawable/iconbutton" />
+                        android:padding="10dp"
+                        android:src="@drawable/person" />
 
                 </LinearLayout>
 
             </RelativeLayout>
 
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="26dp"
                 android:text="Welcome back,"
-                android:textColor="#888888"
+                android:textColor="#9A9A9A"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="Siyabonga"
+                android:layout_marginTop="2dp"
+                android:fontFamily="serif"
+                android:text=""
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="Ready to look your best?"
-                android:textColor="#777777"
-                android:textSize="14sp" />
-
-
-
-            <LinearLayout
+            <!-- Hero card -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginTop="28dp"
-                android:orientation="vertical"
-                android:padding="22dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/homehero">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="THE FADE &amp; FAITH EXPERIENCE"
-                    android:textColor="#D4AF37"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15" />
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:alpha="0.18"
+                    android:contentDescription="@null"
+                    android:src="@drawable/scissorsline" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="Look sharp.&#10;Feel confident."
-                    android:textColor="#FFFFFF"
-                    android:textSize="27sp"
-                    android:textStyle="bold"
-                    android:lineSpacingExtra="3dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="Your next premium cut is just a tap away."
-                    android:textColor="#AAAAAA"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.15"
+                        android:text="THE FADE &amp; FAITH EXPERIENCE"
+                        android:textColor="#E8C45E"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:lineSpacingExtra="3dp"
+                        android:text="Look sharp.&#10;Feel confident."
+                        android:textColor="#FFFFFF"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Your next premium cut is just a tap away."
+                        android:textColor="#AAAAAA"
+                        android:textSize="12sp" />
 
+                </LinearLayout>
 
+            </FrameLayout>
 
+            <!-- Services -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="30dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="OUR SERVICES"
-                    android:textColor="#FFFFFF"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.04" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.15"
+                        android:text="OUR TREATMENTS"
+                        android:textColor="#E8C45E"
+                        android:textSize="9sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.04"
+                        android:text="SERVICES"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/seeServicesButton"
@@ -178,146 +196,227 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="6dp"
                     android:text="SEE ALL"
-                    android:textColor="#D4AF37"
+                    android:textColor="#E8C45E"
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
 
-
-
-            <HorizontalScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:overScrollMode="never">
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cardoutline"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/scissorsline" />
+
+                    <TextView
+                        android:id="@+id/serviceName1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/servicePrice1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:textColor="#E8C45E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cardoutline"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/razorline" />
+
+                    <TextView
+                        android:id="@+id/serviceName2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/servicePrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:textColor="#E8C45E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cardoutline"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/beardline" />
+
+                    <TextView
+                        android:id="@+id/serviceName3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/servicePrice3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:textColor="#E8C45E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cardoutline"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/mustacheline" />
+
+                    <TextView
+                        android:id="@+id/serviceName4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="serif"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/servicePrice4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:textColor="#E8C45E"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Barbers -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="150dp"
-                        android:layout_height="145dp"
-                        android:layout_marginEnd="12dp"
-                        android:orientation="vertical"
-                        android:padding="18dp"
-                        android:background="@drawable/homecard">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.15"
+                        android:text="MEET THE TEAM"
+                        android:textColor="#E8C45E"
+                        android:textSize="9sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="✂"
-                            android:textColor="#D4AF37"
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Haircut"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="From R180"
-                            android:textColor="#777777"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="150dp"
-                        android:layout_height="145dp"
-                        android:layout_marginEnd="12dp"
-                        android:orientation="vertical"
-                        android:padding="18dp"
-                        android:background="@drawable/homecard">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="♠"
-                            android:textColor="#D4AF37"
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Beard Trim"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="From R100"
-                            android:textColor="#777777"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="150dp"
-                        android:layout_height="145dp"
-                        android:orientation="vertical"
-                        android:padding="18dp"
-                        android:background="@drawable/homecard">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="◆"
-                            android:textColor="#D4AF37"
-                            android:textSize="25sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="Premium Shave"
-                            android:textColor="#FFFFFF"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="From R150"
-                            android:textColor="#777777"
-                            android:textSize="11sp" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.04"
+                        android:text="OUR BARBERS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
-
-            </HorizontalScrollView>
-
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginTop="28dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="OUR BARBERS"
-                    android:textColor="#FFFFFF"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/seeBarbersButton"
@@ -325,20 +424,22 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="6dp"
                     android:text="SEE ALL"
-                    android:textColor="#D4AF37"
+                    android:textColor="#E8C45E"
                     android:textSize="11sp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
 
-
-
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:overScrollMode="never">
+                android:layout_marginTop="12dp"
+                android:overScrollMode="never"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -346,76 +447,127 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="170dp"
+                        android:layout_width="160dp"
                         android:layout_height="190dp"
-                        android:layout_marginEnd="12dp"
-                        android:orientation="vertical"
+                        android:layout_marginStart="0dp"
+                        android:background="@drawable/cardoutline"
                         android:gravity="center_horizontal"
-                        android:padding="15dp"
-                        android:background="@drawable/homecard">
+                        android:orientation="vertical"
+                        android:padding="15dp">
 
                         <TextView
+                            android:id="@+id/barberInitials1"
                             android:layout_width="72dp"
                             android:layout_height="72dp"
+                            android:background="@drawable/avatar"
                             android:gravity="center"
-                            android:text="JD"
-                            android:textColor="#D4AF37"
+                            android:text=""
+                            android:textColor="#E8C45E"
                             android:textSize="21sp"
-                            android:textStyle="bold"
-                            android:background="@drawable/avatar" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Jordan D."
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/barberName1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="serif"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/barberRole1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Master Barber"
-                            android:textColor="#777777"
+                            android:text=""
+                            android:textColor="#9A9A9A"
                             android:textSize="11sp" />
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="170dp"
+                        android:layout_width="160dp"
                         android:layout_height="190dp"
-                        android:orientation="vertical"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/cardoutline"
                         android:gravity="center_horizontal"
-                        android:padding="15dp"
-                        android:background="@drawable/homecard">
+                        android:orientation="vertical"
+                        android:padding="15dp">
 
                         <TextView
+                            android:id="@+id/barberInitials2"
                             android:layout_width="72dp"
                             android:layout_height="72dp"
+                            android:background="@drawable/avatar"
                             android:gravity="center"
-                            android:text="KM"
-                            android:textColor="#D4AF37"
+                            android:text=""
+                            android:textColor="#E8C45E"
                             android:textSize="21sp"
-                            android:textStyle="bold"
-                            android:background="@drawable/avatar" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Kay M."
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/barberName2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="serif"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/barberRole2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Senior Barber"
-                            android:textColor="#777777"
+                            android:text=""
+                            android:textColor="#9A9A9A"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="190dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/cardoutline"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:id="@+id/barberInitials3"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:background="@drawable/avatar"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="#E8C45E"
+                            android:textSize="21sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/barberName3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="serif"
+                            android:text=""
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/barberRole3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text=""
+                            android:textColor="#9A9A9A"
                             android:textSize="11sp" />
 
                     </LinearLayout>
@@ -424,38 +576,86 @@
 
             </HorizontalScrollView>
 
+            <!-- Gallery -->
+            <LinearLayout
+                android:id="@+id/galleryButton"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/cardoutline"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
 
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="Hairstyles"
+                    android:src="@drawable/scissorsline" />
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="HAIRSTYLE GALLERY"
+                        android:textColor="#E8C45E"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="See the cuts we do before you book"
+                        android:textColor="#999999"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Banner -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="125dp"
-                android:layout_marginTop="28dp"
-                android:orientation="vertical"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/promotion"
                 android:gravity="center"
-                android:background="@drawable/promotion">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LIMITED OFFER"
+                    android:letterSpacing="0.15"
+                    android:text="READY WHEN YOU ARE"
                     android:textColor="#050505"
                     android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.15" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="25% OFF"
-                    android:textColor="#050505"
-                    android:textSize="27sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your first premium booking"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif"
+                    android:text="BOOK YOUR NEXT CUT"
+                    android:textColor="#050505"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pick a service, choose your barber, done."
                     android:textColor="#282828"
                     android:textSize="11sp" />
 
@@ -465,36 +665,39 @@
 
     </ScrollView>
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="#0B0B0B"
-        android:elevation="12dp">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
 
         <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Home"
+                android:src="@drawable/home"
+                app:tint="#E8C45E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="⌂"
-                android:textColor="#D4AF37"
-                android:textSize="22sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="HOME"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="9sp"
                 android:textStyle="bold" />
 
@@ -505,22 +708,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Services"
+                android:src="@drawable/scissors"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="✂"
-                android:textColor="#777777"
-                android:textSize="19sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="SERVICES"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 
@@ -529,22 +737,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Book"
+                android:src="@drawable/calendar"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:textColor="#777777"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="BOOK"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 
@@ -553,22 +766,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:contentDescription="Profile"
+                android:src="@drawable/person"
+                app:tint="#777777" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="●"
-                android:textColor="#777777"
-                android:textSize="17sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:letterSpacing="0.08"
                 android:text="PROFILE"
                 android:textColor="#777777"
-                android:textSize="9sp" />
+                android:textSize="9sp"
+                android:textStyle="normal" />
 
         </LinearLayout>
 

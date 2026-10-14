@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Fade & Faith palette -->
+    <color name="ff_background">#FF050505</color>
+    <color name="ff_surface">#FF0F0F0F</color>
+    <color name="ff_card">#FF141414</color>
+    <color name="ff_gold">#FFE8C45E</color>
+    <color name="ff_gold_deep">#FFD4AF37</color>
+    <color name="ff_gold_dim">#FF5A4A20</color>
+    <color name="ff_text">#FFFFFFFF</color>
+    <color name="ff_text_secondary">#FF9A9A9A</color>
+    <color name="ff_text_muted">#FF6F6F6F</color>
+    <color name="ff_on_gold">#FF050505</color>
 </resources>

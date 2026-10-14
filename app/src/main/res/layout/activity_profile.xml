@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -71,7 +71,7 @@
                 android:src="@drawable/person"
                 android:background="@drawable/avatar"
                 android:contentDescription="Profile picture"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <TextView
                 android:id="@+id/nameText"
@@ -80,6 +80,8 @@
                 android:layout_marginTop="18dp"
                 android:text="Siyabonga Makhubu"
                 android:textColor="#FFFFFF"
+
+                android:fontFamily="serif"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -107,11 +109,11 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:text="EDIT PROFILE"
-                android:textColor="#050505"
+                android:textColor="@color/ff_on_gold"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.06"
-                android:background="@drawable/goldbutton"
+                android:background="@drawable/gold"
                 app:backgroundTint="@null" />
 
         </LinearLayout>
@@ -126,7 +128,7 @@
             android:paddingEnd="24dp"
             android:paddingBottom="10dp"
             android:text="ACCOUNT"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="12sp"
             android:textStyle="bold"
             android:letterSpacing="0.15" />
@@ -141,7 +143,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -156,7 +158,7 @@
                 android:src="@drawable/calendar"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Bookings"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -187,7 +189,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -202,7 +206,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -217,7 +221,7 @@
                 android:src="@drawable/check"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Payment method"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -248,7 +252,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -263,7 +269,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -278,7 +284,7 @@
                 android:src="@drawable/person"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Change password"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -309,7 +315,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -324,7 +332,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="25dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -339,7 +347,7 @@
                 android:src="@drawable/person"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Settings"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -370,7 +378,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="›"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
+
+                android:fontFamily="serif"
                 android:textSize="28sp" />
 
         </LinearLayout>
@@ -384,7 +394,7 @@
             android:layout_height="58dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center"
             android:orientation="horizontal"
             android:clickable="true"
@@ -394,7 +404,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LOG OUT"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.12" />
@@ -514,14 +524,14 @@
                     android:layout_height="25dp"
                     android:src="@drawable/person"
                     android:contentDescription="Profile"
-                    app:tint="#D4AF37" />
+                    app:tint="#E8C45E" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="PROFILE"
-                    android:textColor="#D4AF37"
+                    android:textColor="#E8C45E"
                     android:textSize="9sp"
                     android:textStyle="bold" />
 

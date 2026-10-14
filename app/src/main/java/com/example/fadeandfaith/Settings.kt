@@ -102,7 +102,11 @@ class Settings : AppCompatActivity() {
         }
 
         languageOption.setOnClickListener {
-            startActivity(Intent(this, Language::class.java))
+            Toast.makeText(
+                this,
+                "Language support is coming soon.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         aboutOption.setOnClickListener {

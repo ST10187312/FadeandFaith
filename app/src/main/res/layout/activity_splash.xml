@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505">
+    android:background="@drawable/herogradient">
 
     <TextView
         android:id="@+id/logoText"
@@ -13,8 +13,8 @@
         android:layout_height="120dp"
         android:background="@drawable/splashlogo"
         android:gravity="center"
-        android:text="F&amp;F"
-        android:textColor="#D4AF37"
+        android:text="@string/brand_initials"
+        android:textColor="#E8C45E"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,21 +28,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="FADE &amp; FAITH"
+        android:fontFamily="serif"
+        android:letterSpacing="0.10"
+        android:text="@string/brand_name_full"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:letterSpacing="0.12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoText" />
 
     <View
         android:id="@+id/goldLine"
-        android:layout_width="55dp"
+        android:layout_width="64dp"
         android:layout_height="2dp"
         android:layout_marginTop="16dp"
-        android:background="#D4AF37"
+        android:background="#E8C45E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/brandName" />
@@ -52,10 +53,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:text="PREMIUM BARBERING"
-        android:textColor="#8C8C8C"
-        android:textSize="11sp"
         android:letterSpacing="0.25"
+        android:text="@string/brand_tagline"
+        android:textColor="#9A9A9A"
+        android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/goldLine" />

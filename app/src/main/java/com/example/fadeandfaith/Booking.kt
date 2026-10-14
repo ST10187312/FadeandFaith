@@ -61,6 +61,7 @@ class Booking : AppCompatActivity() {
 
         initializeViews()
         setupListeners()
+        applyPreselection()
     }
 
     private fun initializeViews() {
@@ -140,41 +141,82 @@ class Booking : AppCompatActivity() {
 
             SERVICE_REQUEST -> {
 
-                selectedServiceId = data.getStringExtra("SERVICE_ID") ?: ""
-                selectedServiceName = data.getStringExtra("SERVICE_NAME") ?: ""
-                selectedServicePrice = data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
-
-                selectedServiceText.text = selectedServiceName
-
-                priceText.text =
-                    String.format(Locale.getDefault(), "R%.0f", selectedServicePrice)
-
-                selectedTime = ""
-                selectedTimeText.text = "Select time"
-                selectedServiceDuration = 0
-
-                if (selectedServiceId.isNotEmpty()) {
-                    firestore.collection("services")
-                        .document(selectedServiceId)
-                        .get()
-                        .addOnSuccessListener { document ->
-                            selectedServiceDuration =
-                                document.getLong("duration")?.toInt() ?: 0
-                        }
-                }
+                applyService(
+                    data.getStringExtra("SERVICE_ID") ?: "",
+                    data.getStringExtra("SERVICE_NAME") ?: "",
+                    data.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
+                )
             }
 
             BARBER_REQUEST -> {
 
-                selectedBarberId = data.getStringExtra("BARBER_ID") ?: ""
-                selectedBarberName = data.getStringExtra("BARBER_NAME") ?: ""
-
-                selectedBarberText.text = selectedBarberName
-
-                selectedTime = ""
-                selectedTimeText.text = "Select time"
+                applyBarber(
+                    data.getStringExtra("BARBER_ID") ?: "",
+                    data.getStringExtra("BARBER_NAME") ?: ""
+                )
             }
         }
+    }
+
+    /**
+     * If the user came here from the Services or Barbers screen by tapping
+     * "Book", that screen sends the choice along so it is already filled in.
+     */
+    private fun applyPreselection() {
+
+        val serviceId = intent.getStringExtra("SERVICE_ID") ?: ""
+        if (serviceId.isNotEmpty()) {
+            applyService(
+                serviceId,
+                intent.getStringExtra("SERVICE_NAME") ?: "",
+                intent.getDoubleExtra("SERVICE_PRICE_VALUE", 0.0)
+            )
+        }
+
+        val barberId = intent.getStringExtra("BARBER_ID") ?: ""
+        if (barberId.isNotEmpty()) {
+            applyBarber(
+                barberId,
+                intent.getStringExtra("BARBER_NAME") ?: ""
+            )
+        }
+    }
+
+    private fun applyService(id: String, name: String, price: Double) {
+
+        selectedServiceId = id
+        selectedServiceName = name
+        selectedServicePrice = price
+
+        selectedServiceText.text = selectedServiceName
+
+        priceText.text =
+            String.format(Locale.getDefault(), "R%.0f", selectedServicePrice)
+
+        selectedTime = ""
+        selectedTimeText.text = "Select time"
+        selectedServiceDuration = 0
+
+        if (selectedServiceId.isNotEmpty()) {
+            firestore.collection("services")
+                .document(selectedServiceId)
+                .get()
+                .addOnSuccessListener { document ->
+                    selectedServiceDuration =
+                        document.getLong("duration")?.toInt() ?: 0
+                }
+        }
+    }
+
+    private fun applyBarber(id: String, name: String) {
+
+        selectedBarberId = id
+        selectedBarberName = name
+
+        selectedBarberText.text = selectedBarberName
+
+        selectedTime = ""
+        selectedTimeText.text = "Select time"
     }
 
     private fun chooseDate() {

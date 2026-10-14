@@ -14,6 +14,7 @@ class BarberDetails : AppCompatActivity() {
     private lateinit var firestore: FirebaseFirestore
 
     private lateinit var backButton: ImageView
+    private lateinit var barberImage: ImageView
     private lateinit var barberNameText: TextView
     private lateinit var barberRoleText: TextView
     private lateinit var barberDescriptionText: TextView
@@ -41,6 +42,7 @@ class BarberDetails : AppCompatActivity() {
     private fun initializeViews() {
 
         backButton = findViewById(R.id.backButton)
+        barberImage = findViewById(R.id.barberImage)
         barberNameText = findViewById(R.id.barberName)
         barberRoleText = findViewById(R.id.barberRole)
         barberDescriptionText = findViewById(R.id.barberDescription)
@@ -92,6 +94,20 @@ class BarberDetails : AppCompatActivity() {
 
                 barberRatingText.text = String.format("%.1f", rating)
                 barberExperienceText.text = "$experience years experience"
+
+                val uploadedPhoto = ImageStore.base64ToBitmap(document.getString("photoBase64"))
+
+                if (uploadedPhoto != null) {
+                    barberImage.setImageBitmap(uploadedPhoto)
+                } else {
+                    barberImage.setImageResource(
+                        when (barberId.lowercase()) {
+                            "michael" -> R.drawable.michael
+                            "david" -> R.drawable.david
+                            else -> R.drawable.james
+                        }
+                    )
+                }
             }
             .addOnFailureListener { e ->
                 Toast.makeText(

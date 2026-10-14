@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -34,6 +34,7 @@
                 android:contentDescription="Back" />
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -76,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="YOUR PAYMENT OPTIONS"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.12" />
@@ -102,7 +103,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="10dp"
             android:text="SAVED PAYMENT METHODS"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.12" />
@@ -117,7 +118,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -132,7 +133,7 @@
                 android:src="@drawable/check"
                 android:background="@drawable/iconbutton"
                 android:contentDescription="Card"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -166,7 +167,7 @@
                 android:layout_height="22dp"
                 android:src="@drawable/check"
                 android:contentDescription="Selected"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
         </LinearLayout>
 
@@ -181,11 +182,11 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="25dp"
             android:text="+  ADD NEW CARD"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="12sp"
             android:textStyle="bold"
             android:letterSpacing="0.05"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             app:backgroundTint="@null" />
 
 
@@ -198,7 +199,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="10dp"
             android:text="OTHER PAYMENT OPTIONS"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="11sp"
             android:textStyle="bold"
             android:letterSpacing="0.12" />
@@ -213,7 +214,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -222,6 +223,7 @@
             android:focusable="true">
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:gravity="center"
@@ -247,7 +249,7 @@
                 android:layout_height="22dp"
                 android:src="@drawable/check"
                 android:contentDescription="Selected"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
         </LinearLayout>
 
@@ -261,7 +263,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -270,6 +272,7 @@
             android:focusable="true">
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:gravity="center"
@@ -294,7 +297,7 @@
                 android:layout_height="22dp"
                 android:src="@drawable/check"
                 android:contentDescription="Selected"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
         </LinearLayout>
 
@@ -308,7 +311,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="28dp"
-            android:background="@drawable/homecard"
+            android:background="@drawable/cardoutline"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="18dp"
@@ -317,11 +320,12 @@
             android:focusable="true">
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:gravity="center"
                 android:text="R"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:background="@drawable/iconbutton" />
@@ -342,7 +346,7 @@
                 android:layout_height="22dp"
                 android:src="@drawable/check"
                 android:contentDescription="Selected"
-                app:tint="#D4AF37" />
+                app:tint="#E8C45E" />
 
         </LinearLayout>
 
@@ -356,11 +360,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:text="SAVE PAYMENT METHOD"
-            android:textColor="#050505"
+            android:textColor="@color/ff_on_gold"
             android:textSize="13sp"
             android:textStyle="bold"
             android:letterSpacing="0.08"
-            android:background="@drawable/goldbutton"
+            android:background="@drawable/gold"
             app:backgroundTint="@null" />
 
     </LinearLayout>

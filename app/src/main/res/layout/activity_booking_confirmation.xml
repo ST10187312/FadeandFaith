@@ -1,241 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#050505">
+    android:orientation="vertical"
+    android:background="@color/ff_background">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
 
-        <!-- TOP BAR -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:id="@+id/backButton"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:padding="11dp"
-                android:background="@drawable/iconbutton"
-                android:src="@drawable/arrowback"
-                android:contentDescription="Back" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="FADE &amp; FAITH"
-                android:textColor="#FFFFFF"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.10" />
-
-            <View
-                android:layout_width="44dp"
-                android:layout_height="44dp" />
-
-        </LinearLayout>
-
-        <!-- TITLE -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="11dp"
+            android:background="@drawable/iconbutton"
+            android:src="@drawable/arrowback"
+            android:contentDescription="Back" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="CONFIRM BOOKING"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:fontFamily="serif"
+            android:text="@string/brand_name_full"
+            android:textColor="@color/ff_gold"
+            android:textSize="19sp"
             android:textStyle="bold"
-            android:letterSpacing="0.05" />
+            android:letterSpacing="0.06" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Review your appointment details before confirming."
-            android:textColor="#888888"
-            android:textSize="14sp" />
+        <View
+            android:layout_width="44dp"
+            android:layout_height="44dp" />
 
-        <!-- BOOKING CARD -->
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
             android:orientation="vertical"
-            android:padding="22dp"
-            android:background="@drawable/homecard">
-
-            <!-- SERVICE -->
+            android:padding="24dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SERVICE"
-                android:textColor="#777777"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.15" />
-
-            <TextView
-                android:id="@+id/serviceText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="Haircut &amp; Beard Trim"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
+                android:fontFamily="serif"
+                android:text="@string/confirm_booking_title"
+                android:textColor="@color/ff_text"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <!-- PRICE -->
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/confirm_booking_subtitle"
+                android:textColor="@color/ff_text_secondary"
+                android:textSize="14sp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="28dp"
+                android:orientation="vertical"
+                android:padding="22dp"
+                android:background="@drawable/cardoutline">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="PRICE"
-                    android:textColor="#777777"
+                    android:layout_marginTop="0dp"
+                    android:text="@string/label_service"
+                    android:textColor="@color/ff_text_muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/serviceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="Haircut &amp; Beard Trim"
+                    android:textColor="@color/ff_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/label_price"
+                    android:textColor="@color/ff_text_muted"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:letterSpacing="0.15" />
 
                 <TextView
                     android:id="@+id/priceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="R180"
+                    android:textColor="@color/ff_gold"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/ff_gold_dim" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R180"
-                    android:textColor="#D4AF37"
-                    android:textSize="17sp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/label_barber"
+                    android:textColor="@color/ff_text_muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/barberText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="James"
+                    android:textColor="@color/ff_text"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/label_date"
+                    android:textColor="@color/ff_text_muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="Sat, 12 Sep 2026"
+                    android:textColor="@color/ff_text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/label_time"
+                    android:textColor="@color/ff_text_muted"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:id="@+id/timeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="10:00 AM"
+                    android:textColor="@color/ff_text"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-            <!-- DIVIDER -->
-
-            <View
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/confirmButton"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="#252525" />
-
-            <!-- BARBER -->
+                android:layout_height="58dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/action_confirm_appointment"
+                android:textColor="@color/ff_on_gold"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:background="@drawable/gold"
+                app:backgroundTint="@null" />
 
             <TextView
+                android:id="@+id/changeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="BARBER"
-                android:textColor="#777777"
-                android:textSize="11sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="18dp"
+                android:padding="12dp"
+                android:text="@string/action_change_details"
+                android:textColor="@color/ff_gold"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.15" />
-
-            <TextView
-                android:id="@+id/barberText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="James"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!-- DATE -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="DATE"
-                android:textColor="#777777"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.15" />
-
-            <TextView
-                android:id="@+id/dateText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="Sat, 12 Sep 2026"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
-
-            <!-- TIME -->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="TIME"
-                android:textColor="#777777"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.15" />
-
-            <TextView
-                android:id="@+id/timeText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:text="10:00 AM"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+                android:letterSpacing="0.08" />
 
         </LinearLayout>
 
-        <!-- CONFIRM BUTTON -->
+    </ScrollView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/confirmButton"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginTop="28dp"
-            android:text="CONFIRM APPOINTMENT"
-            android:textColor="#050505"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.05"
-            android:background="@drawable/goldbutton"
-            app:backgroundTint="@null" />
-
-        <!-- CHANGE -->
-
-        <TextView
-            android:id="@+id/changeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp"
-            android:padding="12dp"
-            android:text="CHANGE DETAILS"
-            android:textColor="#D4AF37"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.08" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

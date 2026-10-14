@@ -235,6 +235,33 @@
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="22dp"
+                android:background="#252525" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:gravity="center"
+                android:text="SCAN FOR DIGITAL RECEIPT"
+                android:textColor="#777777"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12" />
+
+            <ImageView
+                android:id="@+id/qrImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:padding="10dp"
+                android:background="#FFFFFF"
+                android:contentDescription="Receipt QR code" />
+
         </LinearLayout>
 
 
@@ -244,7 +271,7 @@
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="28dp"
-            android:text="PROCEED TO PAYMENT"
+            android:text="BACK TO MY BOOKINGS"
             android:textColor="#050505"
             android:textSize="13sp"
             android:textStyle="bold"
@@ -256,7 +283,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="Your appointment details will be securely processed."
+            android:text="Show this QR code at the shop, or scan it to see your receipt."
             android:textColor="#666666"
             android:textSize="11sp"
             android:gravity="center" />

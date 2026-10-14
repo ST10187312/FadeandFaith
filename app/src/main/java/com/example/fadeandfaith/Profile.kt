@@ -8,8 +8,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Profile : AppCompatActivity() {
+
+    private lateinit var firestore: FirebaseFirestore
+    private lateinit var sessionManager: SessionManager
 
     private lateinit var backButton: ImageView
     private lateinit var profileImage: ImageView
@@ -34,8 +39,48 @@ class Profile : AppCompatActivity() {
 
         setContentView(R.layout.activity_profile)
 
+        firestore = FirebaseFirestore.getInstance()
+        sessionManager = SessionManager(this)
+
         initializeViews()
         setupClickListeners()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Reloaded every time this screen appears, so changes made in
+        // Edit Profile show up as soon as you come back.
+        loadProfile()
+    }
+
+    private fun loadProfile() {
+
+        val userId = sessionManager.getUserId() ?: return
+
+        firestore.collection("users")
+            .document(userId)
+            .get()
+            .addOnSuccessListener { document ->
+
+                val name = document.getString("name") ?: ""
+
+                nameText.text = name
+                    .split(" ")
+                    .joinToString(" ") { word ->
+                        word.replaceFirstChar { it.uppercase() }
+                    }
+
+                emailText.text = document.getString("email") ?: ""
+                phoneText.text = document.getString("phone") ?: ""
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(
+                    this,
+                    "Could not load your profile: ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
     }
 
     private fun initializeViews() {
@@ -68,62 +113,39 @@ class Profile : AppCompatActivity() {
         }
 
         editProfileButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    EditProfileActivity::class.java
-                )
-            )
+            startActivity(Intent(this, EditProfileActivity::class.java))
         }
 
         bookingsButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    MyBookings::class.java
-                )
-            )
+            startActivity(Intent(this, MyBookings::class.java))
         }
 
         paymentButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    PaymentMethodActivity::class.java
-                )
-            )
+            startActivity(Intent(this, PaymentMethodActivity::class.java))
         }
 
         changePasswordButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    ChangePasswordActivity::class.java
-                )
-            )
+            startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
 
         settingsButton.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    Settings::class.java
-                )
-            )
+            startActivity(Intent(this, Settings::class.java))
         }
 
         logoutButton.setOnClickListener {
 
+            // The fix: actually sign out of Firebase and clear the saved
+            // session, instead of only moving to the Login screen.
+            FirebaseAuth.getInstance().signOut()
+            sessionManager.logout()
+
             Toast.makeText(
                 this,
-                "Logging out...",
+                "Logged out.",
                 Toast.LENGTH_SHORT
             ).show()
 
-            val intent = Intent(
-                this,
-                Login::class.java
-            )
+            val intent = Intent(this, Login::class.java)
 
             intent.flags =
                 Intent.FLAG_ACTIVITY_NEW_TASK or
@@ -134,32 +156,17 @@ class Profile : AppCompatActivity() {
         }
 
         navHome.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    Home::class.java
-                )
-            )
+            startActivity(Intent(this, Home::class.java))
             finish()
         }
 
         navServices.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    Services::class.java
-                )
-            )
+            startActivity(Intent(this, Services::class.java))
             finish()
         }
 
         navBooking.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    MyBookings::class.java
-                )
-            )
+            startActivity(Intent(this, MyBookings::class.java))
         }
 
         navProfile.setOnClickListener {

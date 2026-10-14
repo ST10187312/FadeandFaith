@@ -1,3 +1,141 @@
 <resources>
     <string name="app_name">FadeandFaith</string>
+    <string name="brand_initials">F&amp;F</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_password">Password</string>
+
+    <string name="login_welcome_title">WELCOME BACK</string>
+    <string name="login_subtitle">Sign in to continue your experience.</string>
+    <string name="login_forgot_password">Forgot password?</string>
+    <string name="login_sign_in_button">SIGN IN</string>
+    <string name="login_no_account_prompt">Don\'t have an account?</string>
+    <string name="action_create_account">CREATE ACCOUNT</string>
+    <string name="login_staff_prompt">STAFF MEMBER?</string>
+    <string name="label_staff_login">STAFF LOGIN</string>
+
+    <string name="register_subtitle">Join the FADE &amp; FAITH experience.</string>
+    <string name="hint_full_name">Full name</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_confirm_password">Confirm password</string>
+    <string name="register_already_have_account">ALREADY HAVE AN ACCOUNT? SIGN IN</string>
+
+    <string name="staff_login_subtitle">Sign in to access the staff dashboard.</string>
+    <string name="hint_staff_email">Staff email address</string>
+    <string name="action_staff_sign_in">STAFF SIGN IN</string>
+    <string name="action_back_to_customer_login">BACK TO CUSTOMER LOGIN</string>
+
+    <string name="forgot_password_title">RESET PASSWORD</string>
+    <string name="forgot_password_subtitle">Enter your email and we\'ll help you get back into your account.</string>
+    <string name="action_send_reset_link">SEND RESET LINK</string>
+
+    <string name="brand_name_full">FADE &amp; FAITH</string>
+    <string name="brand_tagline">PREMIUM BARBERING</string>
+    <string name="home_welcome_prefix">Welcome back,</string>
+    <string name="home_user_name_placeholder">Siyabonga</string>
+    <string name="home_ready_prompt">Ready to look your best?</string>
+    <string name="home_experience_banner">THE FADE &amp; FAITH EXPERIENCE</string>
+    <string name="home_hero_headline">Look sharp.\nFeel confident.</string>
+    <string name="home_hero_subtext">Your next premium cut is just a tap away.</string>
+    <string name="home_services_heading">OUR SERVICES</string>
+    <string name="action_see_all">SEE ALL</string>
+    <string name="icon_scissors">✂</string>
+    <string name="service_haircut_name">Haircut</string>
+    <string name="service_haircut_price">From R180</string>
+    <string name="icon_spade">♠</string>
+    <string name="service_beard_trim_name">Beard Trim</string>
+    <string name="service_beard_trim_price">From R100</string>
+    <string name="icon_diamond">◆</string>
+    <string name="service_premium_shave_name">Premium Shave</string>
+    <string name="service_premium_shave_price">From R150</string>
+    <string name="home_barbers_heading">OUR BARBERS</string>
+    <string name="barber_initials_jd">JD</string>
+    <string name="barber_name_jordan">Jordan D.</string>
+    <string name="barber_role_master">Master Barber</string>
+    <string name="barber_initials_km">KM</string>
+    <string name="barber_name_kay">Kay M.</string>
+    <string name="barber_role_senior">Senior Barber</string>
+    <string name="promo_limited_offer">LIMITED OFFER</string>
+    <string name="promo_discount">25% OFF</string>
+    <string name="promo_description">Your first premium booking</string>
+    <string name="icon_home">⌂</string>
+    <string name="nav_home">HOME</string>
+    <string name="icon_plus">+</string>
+    <string name="nav_book">BOOK</string>
+    <string name="icon_circle">●</string>
+    <string name="nav_profile">PROFILE</string>
+    <string name="nav_services">SERVICES</string>
+    <string name="onboarding_headline">Your Style.</string>
+    <string name="onboarding_subtext">Experience premium barbering designed around your style.</string>
+    <string name="action_next">NEXT</string>
+    <string name="action_skip">SKIP</string>
+
+    <string name="services_subtitle">Premium barbering, your way.</string>
+    <string name="service_full_haircut_beard_name">Haircut &amp; Beard Trim</string>
+    <string name="service_full_haircut_beard_desc">Precision haircut finished with a professional beard trim and styling.</string>
+    <string name="service_full_shave_haircut_name">Shave &amp; Haircut</string>
+    <string name="service_full_shave_haircut_desc">Classic barbering with a clean shave and expertly finished haircut.</string>
+    <string name="service_full_facial_shave_name">Facial &amp; Shave</string>
+    <string name="service_full_facial_shave_desc">Refresh your skin with a relaxing facial followed by a smooth shave.</string>
+    <string name="service_full_premium_name">Premium Experience</string>
+    <string name="service_full_premium_desc">The complete FADE &amp; FAITH experience with haircut, beard, facial and styling.</string>
+
+    <string name="barbers_subtitle">Meet the professionals.</string>
+    <string name="barber_role_style_specialist">Style Specialist</string>
+    <string name="barber_desc_james">Specialist in fades, precision cuts and modern styling.</string>
+    <string name="barber_desc_michael">Known for classic cuts, beard work and detailed finishes.</string>
+    <string name="barber_desc_david">Expert in contemporary styles, tapers and creative looks.</string>
+    <string name="action_view_profile">VIEW PROFILE</string>
+
+    <string name="label_service_details_title">SERVICE DETAILS</string>
+    <string name="label_price">PRICE</string>
+    <string name="label_duration">DURATION</string>
+    <string name="label_whats_included">WHAT\'S INCLUDED</string>
+    <string name="service_included_list">✓  Professional consultation\n\n✓  Premium barbering service\n\n✓  Styling and finishing\n\n✓  Professional aftercare advice</string>
+    <string name="action_book_this_service">BOOK THIS SERVICE</string>
+
+    <string name="label_barber_profile_title">BARBER PROFILE</string>
+    <string name="label_rating">RATING</string>
+    <string name="label_experience">EXPERIENCE</string>
+    <string name="action_book_with_barber">BOOK WITH THIS BARBER</string>
+    <string name="label_service">SERVICE</string>
+    <string name="label_barber">BARBER</string>
+    <string name="label_date">DATE</string>
+    <string name="label_time">TIME</string>
+    <string name="action_choose">CHOOSE</string>
+    <string name="action_continue">CONTINUE</string>
+
+    <string name="booking_title">BOOK APPOINTMENT</string>
+    <string name="booking_subtitle">Secure your appointment</string>
+    <string name="booking_subtext">Choose when you\'d like to look your best.</string>
+    <string name="booking_select_service">Select service</string>
+    <string name="booking_any_barber">Any available barber</string>
+    <string name="booking_select_date">Select date</string>
+    <string name="booking_select_time">Select time</string>
+
+    <string name="confirm_booking_title">CONFIRM BOOKING</string>
+    <string name="confirm_booking_subtitle">Review your appointment details before confirming.</string>
+    <string name="action_confirm_appointment">CONFIRM APPOINTMENT</string>
+    <string name="action_change_details">CHANGE DETAILS</string>
+
+    <string name="my_bookings_title">MY BOOKINGS</string>
+    <string name="my_bookings_heading">Your Appointments</string>
+    <string name="my_bookings_subtitle">Manage your barber appointments in one place.</string>
+    <string name="tab_upcoming">UPCOMING</string>
+    <string name="tab_completed">COMPLETED</string>
+    <string name="tab_cancelled">CANCELLED</string>
+    <string name="label_upcoming_appointment">UPCOMING APPOINTMENT</string>
+    <string name="label_total">TOTAL</string>
+    <string name="action_view_receipt">VIEW E-RECEIPT</string>
+    <string name="action_cancel_appointment">CANCEL APPOINTMENT</string>
+    <string name="empty_no_completed">NO COMPLETED BOOKINGS</string>
+    <string name="empty_no_completed_desc">Your completed appointments will appear here.</string>
+    <string name="empty_appointment_cancelled">APPOINTMENT CANCELLED</string>
+    <string name="empty_cancelled_desc">Your cancelled appointment will appear here.</string>
+    <string name="nav_bookings">BOOKINGS</string>
+
+    <string name="receipt_title">E-RECEIPT</string>
+    <string name="receipt_thank_you">Thank you for choosing FADE &amp; FAITH.</string>
+    <string name="label_receipt">RECEIPT</string>
+    <string name="action_proceed_payment">PROCEED TO PAYMENT</string>
+    <string name="receipt_footer_note">Your appointment details will be securely processed.</string>
 </resources>

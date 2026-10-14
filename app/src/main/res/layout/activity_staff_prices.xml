@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,17 +13,21 @@
         android:padding="24dp">
 
         <Button
+            android:background="@drawable/gold"
+            android:textColor="@color/ff_on_gold"
+            android:textStyle="bold"
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="Service Prices"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -36,46 +40,61 @@
             android:textSize="14sp" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/haircutPriceInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="25dp"
             android:hint="Haircut and Beard Trim price"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="numberDecimal" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/shavePriceInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
             android:hint="Shave and Haircut price"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="numberDecimal" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/facialPriceInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
             android:hint="Facial and Shave price"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="numberDecimal" />
 
         <EditText
+            android:background="@drawable/inputgold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:id="@+id/premiumPriceInput"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
             android:hint="Premium Experience price"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#888888"
+            android:textColor="#1A1A1A"
+            android:textColorHint="#7A6520"
             android:inputType="numberDecimal" />
 
         <Button
+            android:background="@drawable/gold"
+            android:textColor="@color/ff_on_gold"
+            android:textStyle="bold"
             android:id="@+id/savePricesButton"
             android:layout_width="match_parent"
             android:layout_height="55dp"

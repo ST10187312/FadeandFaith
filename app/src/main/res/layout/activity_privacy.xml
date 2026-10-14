@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/ff_background"
     android:fillViewport="true">
 
     <LinearLayout
@@ -30,6 +30,7 @@
                 android:background="@drawable/iconbutton" />
 
             <TextView
+                android:fontFamily="serif"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -47,6 +48,7 @@
         </LinearLayout>
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Privacy Policy"
@@ -59,15 +61,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Last updated: September 2026"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="12sp"
             android:layout_marginBottom="24dp" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1. Information We Collect"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -82,10 +85,11 @@
             android:layout_marginBottom="22dp" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2. Account Security"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -100,10 +104,11 @@
             android:layout_marginBottom="22dp" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3. Appointments"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -118,10 +123,11 @@
             android:layout_marginBottom="22dp" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4. Notifications"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="17sp"
             android:textStyle="bold" />
 
@@ -136,10 +142,11 @@
             android:layout_marginBottom="22dp" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5. Data Protection"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="17sp"
             android:textStyle="bold" />
 

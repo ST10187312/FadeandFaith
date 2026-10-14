@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505">
+    android:background="@color/ff_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +16,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fade &amp; Faith"
-            android:textColor="#D4AF37"
+            android:textColor="#E8C45E"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
+            android:fontFamily="serif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -45,14 +46,15 @@
             android:orientation="vertical"
             android:gravity="center"
             android:padding="20dp"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
+                android:fontFamily="serif"
                 android:id="@+id/appointmentsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
@@ -72,7 +74,7 @@
             android:layout_marginTop="24dp"
             android:gravity="center_vertical"
             android:padding="20dp"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +93,7 @@
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:padding="20dp"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,12 +112,70 @@
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:padding="20dp"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Service Prices"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/staffProfileButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:background="@drawable/cardoutline">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Profile &amp; Photo"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hairstylesButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:background="@drawable/cardoutline">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hairstyle Gallery"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/staffManageButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:padding="20dp"
+            android:background="@drawable/cardoutline"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manage Staff Passwords"
                 android:textColor="#FFFFFF"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -129,7 +189,7 @@
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:padding="20dp"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -147,13 +207,13 @@
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:background="@drawable/homecard">
+            android:background="@drawable/cardoutline">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Log Out"
-                android:textColor="#D4AF37"
+                android:textColor="#E8C45E"
                 android:textSize="17sp"
                 android:textStyle="bold" />
 
