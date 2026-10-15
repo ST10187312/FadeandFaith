@@ -65,9 +65,9 @@ Or just install the latest APK from the Releases page (allow "install unknown ap
 
  Known limitations
 
-- Language selection shows "coming soon"; the app is English-only in v1.0.
+- Language selection the app is English-only in v1.0. due to multiple crashes and limited access to required software to manage the language system
 - Payment happens at the shop; there is no online card processing.
-- Alerts appear while the app is open (real-time listeners), not as background push messages.
+- Alerts appear while the app is open (real-time), not as background push messages.
 
  Future improvements
 
